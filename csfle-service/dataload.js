@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const csv = require('fast-csv');
 const dotenv = require('dotenv');
-const MongoClient = require('mongodb').MongoClient;
+const { MongoClient } = require("mongodb");
 
 dotenv.config();
 
@@ -33,7 +33,7 @@ const dbOperation = async (operation, collection, data, query, sort) => {
     // for async it only works with Promise and resolve/reject
     return new Promise(async (resolve, reject) => {
         // Connect using the connection string
-        await MongoClient.connect(process.env['MONGODB_ATLAS_CLUSTER_URI'], { useNewUrlParser: true, useUnifiedTopology: true }, async (err, client) => {
+        await MongoClient.connect(process.env['MONGODB_ATLAS_CLUSTER_URI'], { monitorCommands: true }, async (err, client) => {
             if (err) {
                 reject(err);
             } else {

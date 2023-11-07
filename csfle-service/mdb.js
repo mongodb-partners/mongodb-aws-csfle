@@ -16,12 +16,14 @@ module.exports.get = async (secure, encryptionOption) => {
          client = new MongoClient(atlas_connection_uri,  {
              useNewUrlParser: true,
              useUnifiedTopology: true,
+             monitorCommands: true,
              autoEncryption: encryptionOption
          });
     } else {
         client = new MongoClient(atlas_connection_uri, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
+            monitorCommands: true
         });
     }
 

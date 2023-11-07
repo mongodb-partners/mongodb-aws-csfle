@@ -1,13 +1,14 @@
 let AWS = require('aws-sdk');
 const mdb = require("./mdb");
 const secret = require("./secret");
-const { ClientEncryption } = require('mongodb');
+const { ClientEncryption } = require('mongodb-client-encryption');
 
 const provider = "aws";
 let kmsProviders = {};
 let masterKey = {};
 const keyVaultDatabase = "encryption";
 const keyVaultCollection = "__keyVault";
+const keyVaultNamespace = `${keyVaultDatabase}.${keyVaultCollection}`;
 
 const getKeyManagementProviderDetails = async () => {
     const key = process.env['ENVIRONMENT'] ? process.env['ENVIRONMENT'].toUpperCase() + '_' + 'KMS_PROVIDER_SECRETS' : 'KMS_PROVIDER_SECRETS';
@@ -27,19 +28,30 @@ const getKeyManagementProviderDetails = async () => {
     return;
 }
 
-module.exports.getEncryptionOptions = async () => {
+module.exports.getEncryptionOptions = async (schema) => {
     let encryptionOptions = {}
-    const keyVaultNamespace = `${keyVaultDatabase}.${keyVaultCollection}`;
     const keyVaultCollectionExist = await findKeyVaultCollectionExists();
+    const extraOptions = {
+        cryptSharedLibPath: process.env['CRYPT_SHARED_LIB_PATH'],
+        cryptSharedLibRequired: true
+    }
     if(keyVaultCollectionExist) {
 
+
     } else {
+        await getKeyManagementProviderDetails();
+
+        encryptionOptions = {
+            keyVaultNamespace,
+            kmsProviders,
+            schemaMap: schema,
+            extraOptions: extraOptions
+        }
 
     }
 
-
+    return encryptionOptions;
 }
-
 
 module.exports.createUniqueIndex = async () => {
     const keyVaultClient = mdb.get(false);
@@ -69,7 +81,7 @@ module.exports.createUniqueIndex = async () => {
 module.exports.createDataEncryptionKey = async () => {
     const client = await mdb.get(false);
     await client.connect();
-    const keyVaultNamespace = `${keyVaultDatabase}.${keyVaultCollection}`;
+
     const encryption = new ClientEncryption(client, {
         keyVaultNamespace,
         kmsProviders,

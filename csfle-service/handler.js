@@ -6,8 +6,9 @@ const database = require('./db');
 const db = process.env['DB_NAME']
 const table = process.env['TABLE_NAME'];
 const mdb = require('./mdb');
+const {Binary} = require("mongodb");
 
-module.exports.saveApplication = async (event) => {
+module.exports.saveCustomer = async (event) => {
 /*    const data = JSON.parse(event.body);
     console.log(data);
 
@@ -45,7 +46,13 @@ module.exports.saveApplication = async (event) => {
 
     const data = JSON.parse(event.body);
     const userId = event.requestContext.identity.cognitoIdentityId;
-    const client = await mdb.get(false);
+
+    const dataEncryptionKey = await encrypt.createDataEncryptionKey();
+    const schema = getCustomerSchema(dataEncryptionKey);
+    const encryptionOption = await encrypt.getEncryptionOptions(schema);
+
+    const client = await mdb.get(true, encryptionOption);
+
 
     //console.log('keys', keys);
     const database = process.env['DB_NAME'];
@@ -87,3 +94,55 @@ module.exports.saveApplication = async (event) => {
     };
 }
 
+const getCustomerSchema = (dataKey) => {
+    const db = process.env['ENVIRONMENT'];
+    const coll = "patients";
+    const namespace = `${db}.${coll}`;
+    const schema = {
+        bsonType: "object",
+        encryptMetadata: {
+            keyId: [new Binary(Buffer.from(dataKey, "base64"), 4)],
+        },
+        properties: {
+            account: {
+                bsonType: "object",
+                properties: {
+                    sortCode: {
+                        encrypt: {
+                            bsonType: "int",
+                            algorithm: "AEAD_AES_256_CBC_HMAC_SHA_512-Random",
+                        },
+                    },
+                    accountNumber: {
+                        encrypt: {
+                            bsonType: "int",
+                            algorithm: "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic",
+                        },
+                    },
+                },
+            },
+            dateOfBirth: {
+                encrypt: {
+                    bsonType: "date",
+                    algorithm: "AEAD_AES_256_CBC_HMAC_SHA_512-Random",
+                },
+            },
+            email: {
+                encrypt: {
+                    bsonType: "string",
+                    algorithm: "AEAD_AES_256_CBC_HMAC_SHA_512-Random",
+                },
+            },
+            phone: {
+                encrypt: {
+                    bsonType: "string",
+                    algorithm: "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic",
+                },
+            },
+        },
+    };
+    let customerSchema = {};
+    customerSchema[namespace] = schema;
+
+    return customerSchema;
+}

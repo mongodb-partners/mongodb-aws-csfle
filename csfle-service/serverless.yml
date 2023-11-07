@@ -75,11 +75,11 @@ package:
 #    - exclude-me-dir/**
 
 functions:
-  saveApplication:
-    handler: handler.saveApplication
+  saveCustomer:
+    handler: handler.saveCustomer
     events:
       - http:
-          path: saveApplication
+          path: saveCustomer
           method: post
           cors: true
           authorizer: aws_iam
