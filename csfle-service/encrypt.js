@@ -115,3 +115,6 @@ const findKeyVaultCollectionExists = async () => {
     return exists;
 }
 
+module.exports.getKeyId = (key) => {
+    return new Binary(Buffer.from(key, "base64"), 4);
+}

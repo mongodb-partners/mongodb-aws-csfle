@@ -107,11 +107,6 @@ custom:
       - DB_USER
       - DB_NAME
       - CRYPT_SHARED_LIB_PATH
-  apigwBinary:
-    types:
-      - 'application/pdf'
-      - 'applicaion/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-      - 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
   stage: ${opt:stage, self:provider.stage}
   domains:
     prod: ${env:API_DOMAIN}
