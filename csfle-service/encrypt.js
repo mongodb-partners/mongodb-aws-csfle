@@ -81,7 +81,7 @@ module.exports.createUniqueIndex = async () => {
 module.exports.createDataEncryptionKey = async () => {
     await getKeyManagementProviderDetails();
     const client = await mdb.get(false);
-    await client.connect();
+    //await client.connect();
 
     const encryption = new ClientEncryption(client, {
         keyVaultNamespace,
@@ -92,13 +92,13 @@ module.exports.createDataEncryptionKey = async () => {
     });
     const dataEncryptionKey = key.toString("base64");
     console.log("DataKeyId [base64]: ", dataEncryptionKey);
-    await client.close();
+    //await client.close();
     return dataEncryptionKey;
 }
 
 const findKeyVaultCollectionExists = async () => {
     const keyVaultClient = mdb.get(false);
-    const exists = mdb.findCollectionExists(keyVaultClient, keyVaultDatabase, keyVaultCollection);
+    const exists = await mdb.findCollectionExists(keyVaultClient, keyVaultDatabase, keyVaultCollection);
     console.log("Exists", exists);
     return exists;
 }

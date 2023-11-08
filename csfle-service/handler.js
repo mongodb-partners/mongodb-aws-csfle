@@ -53,7 +53,6 @@ module.exports.saveCustomer = async (event) => {
 
     const client = await mdb.get(true, encryptionOption);
 
-
     //console.log('keys', keys);
     const database = process.env['DB_NAME'];
     let sequenceDoc = await mdb.findSequence(client, database, "sequence", {"key": "customer_seq"});
