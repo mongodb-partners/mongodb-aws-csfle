@@ -50,7 +50,7 @@ module.exports.saveCustomer = async (event) => {
 
     const dataEncryptionKey = await encrypt.getDataEncryptionKey();
     const schema = getCustomerSchema(dataEncryptionKey);
-    const encryptionOption = await encrypt.getEncryptionOptions(schema);
+    const encryptionOption = await encrypt.getEncryptionOption(schema);
 
     const client = await mdb.get(true, encryptionOption);
 
@@ -95,8 +95,8 @@ module.exports.saveCustomer = async (event) => {
 }
 
 const getCustomerSchema = (dataKey) => {
-    const db = process.env['ENVIRONMENT'];
-    const coll = "patients";
+    const db = process.env['DB_NAME'];
+    const coll = collection;
     const namespace = `${db}.${coll}`;
     const schema = {
         bsonType: "object",

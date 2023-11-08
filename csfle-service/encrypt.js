@@ -90,22 +90,22 @@ const createDataEncryptionKey = async (schema) => {
     return dataEncryptionKey;
 }
 
-module.exports.getEncryptionOptions = async (schema) => {
-    let encryptionOptions = {}
+module.exports.getEncryptionOption = async (schema) => {
+    let encryptionOption = {}
     const extraOptions = {
         cryptSharedLibPath: process.env['CRYPT_SHARED_LIB_PATH'],
         cryptSharedLibRequired: true
     }
 
     await getKeyManagementProviderDetails();
-    encryptionOptions = {
+    encryptionOption = {
         keyVaultNamespace,
         kmsProviders,
         schemaMap: schema,
         extraOptions: extraOptions
     }
 
-    return encryptionOptions;
+    return encryptionOption;
 }
 
 const findKeyVaultCollectionExists = async () => {
