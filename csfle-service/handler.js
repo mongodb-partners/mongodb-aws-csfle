@@ -6,7 +6,7 @@ const database = require('./db');
 const db = process.env['DB_NAME']
 const table = process.env['TABLE_NAME'];
 const mdb = require('./mdb');
-const {Binary} = require("mongodb");
+const { Binary } = require("mongodb");
 
 module.exports.saveCustomer = async (event) => {
 /*    const data = JSON.parse(event.body);

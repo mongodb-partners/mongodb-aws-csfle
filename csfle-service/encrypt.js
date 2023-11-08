@@ -1,7 +1,7 @@
 let AWS = require('aws-sdk');
 const mdb = require("./mdb");
 const secret = require("./secret");
-const { ClientEncryption } = require('mongodb-client-encryption');
+const { Binary, ClientEncryption } = require('mongodb');
 
 const provider = "aws";
 let kmsProviders = {};
