@@ -84,7 +84,7 @@ functions:
           cors: true
           authorizer: aws_iam
     environment:
-      TABLE_NAME: "MORTGAGE_APPLICATION"
+      COLLECTION_NAME: "customer"
 
 
 # you can add CloudFormation resource templates here
@@ -106,6 +106,7 @@ custom:
       - DB_PORT
       - DB_USER
       - DB_NAME
+      - CRYPT_SHARED_LIB_PATH
   apigwBinary:
     types:
       - 'application/pdf'

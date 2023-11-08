@@ -4,7 +4,8 @@ const encrypt = require('./encrypt');
 const email = require('./email');
 const database = require('./db');
 const db = process.env['DB_NAME']
-const table = process.env['TABLE_NAME'];
+//const table = process.env['TABLE_NAME'];
+const collection = process.env['COLLECTION_NAME'];
 const mdb = require('./mdb');
 const { Binary } = require("mongodb");
 
@@ -81,7 +82,7 @@ module.exports.saveCustomer = async (event) => {
         lastLogin: new Date()
     }
 
-    const response = (!userId || userId === undefined) ? {} : await mdb.insertDocument(client, database, "customer",  customer);
+    const response = (!userId || userId === undefined) ? {} : await mdb.insertDocument(client, database, collection,  customer);
 
     return {
         statusCode: 200,
