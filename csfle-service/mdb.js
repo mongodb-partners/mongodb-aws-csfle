@@ -14,15 +14,11 @@ module.exports.get = async (secure, encryptionOption) => {
     let client;
     if(secure) {
          client = new MongoClient(atlas_connection_uri,  {
-             useNewUrlParser: true,
-             useUnifiedTopology: true,
              monitorCommands: true,
              autoEncryption: encryptionOption
          });
     } else {
         client = new MongoClient(atlas_connection_uri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
             monitorCommands: true
         });
     }
@@ -77,9 +73,16 @@ module.exports.deleteDocuments = async (client, database, collection, query) => 
 }
 
 module.exports.findCollectionExists = async (client, database, collection) => {
+    let exists = false;
     const collections = await client.db(database).listCollections().toArray();
     console.log("Collections", collections);
-    return collections.contains(collection);
+    for(let i in collections) {
+        if (collections[i].name === collection) {
+            exists = true;
+            break;
+        }
+    }
+    return exists;
 }
 
 module.exports.createIndex = async (client, database, collection, indexSpecs, options) => {

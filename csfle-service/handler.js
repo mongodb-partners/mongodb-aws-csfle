@@ -47,7 +47,7 @@ module.exports.saveCustomer = async (event) => {
     const data = JSON.parse(event.body);
     const userId = event.requestContext.identity.cognitoIdentityId;
 
-    const dataEncryptionKey = await encrypt.createDataEncryptionKey();
+    const dataEncryptionKey = await encrypt.getDataEncryptionKey();
     const schema = getCustomerSchema(dataEncryptionKey);
     const encryptionOption = await encrypt.getEncryptionOptions(schema);
 

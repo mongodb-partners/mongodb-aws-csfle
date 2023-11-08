@@ -28,32 +28,26 @@ const getKeyManagementProviderDetails = async () => {
     return;
 }
 
-module.exports.getEncryptionOptions = async (schema) => {
-    let encryptionOptions = {}
+module.exports.getDataEncryptionKey = async (schema) => {
+    let dataKey = "";
     const keyVaultCollectionExist = await findKeyVaultCollectionExists();
-    const extraOptions = {
-        cryptSharedLibPath: process.env['CRYPT_SHARED_LIB_PATH'],
-        cryptSharedLibRequired: true
-    }
     if(keyVaultCollectionExist) {
-
-
-    } else {
-        await getKeyManagementProviderDetails();
-
-        encryptionOptions = {
-            keyVaultNamespace,
-            kmsProviders,
-            schemaMap: schema,
-            extraOptions: extraOptions
+        const keyVaultClient = mdb.get(false);
+        const keyExists = await mdb.findDocument(keyVaultClient, keyVaultDatabase, "dataKey", {"schema": schema});
+        if(keyExists) {
+            dataKey = keyExists.key;
+        } else {
+            dataKey = await createDataEncryptionKey(schema);
         }
-
+    } else {
+        await createUniqueIndex();
+        dataKey = await createDataEncryptionKey(schema);
     }
 
-    return encryptionOptions;
+    return dataKey;
 }
 
-module.exports.createUniqueIndex = async () => {
+const createUniqueIndex = async () => {
     const keyVaultClient = mdb.get(false);
     //await keyVaultClient.connect();
     //const keyVaultDB = keyVaultClient.db(keyVaultDatabase);
@@ -78,7 +72,7 @@ module.exports.createUniqueIndex = async () => {
     return;
 }
 
-module.exports.createDataEncryptionKey = async () => {
+const createDataEncryptionKey = async (schema) => {
     await getKeyManagementProviderDetails();
     const client = await mdb.get(false);
 
@@ -90,8 +84,28 @@ module.exports.createDataEncryptionKey = async () => {
         masterKey: masterKey,
     });
     const dataEncryptionKey = key.toString("base64");
+    await mdb.insertDocument(client, keyVaultDatabase, "dataKey", { "schema": schema, "key": dataEncryptionKey });
     console.log("DataKeyId [base64]: ", dataEncryptionKey);
+
     return dataEncryptionKey;
+}
+
+module.exports.getEncryptionOptions = async (schema) => {
+    let encryptionOptions = {}
+    const extraOptions = {
+        cryptSharedLibPath: process.env['CRYPT_SHARED_LIB_PATH'],
+        cryptSharedLibRequired: true
+    }
+
+    await getKeyManagementProviderDetails();
+    encryptionOptions = {
+        keyVaultNamespace,
+        kmsProviders,
+        schemaMap: schema,
+        extraOptions: extraOptions
+    }
+
+    return encryptionOptions;
 }
 
 const findKeyVaultCollectionExists = async () => {
