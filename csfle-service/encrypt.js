@@ -23,8 +23,8 @@ const getKeyManagementProviderDetails = async () => {
         key: response['KMS_PROVIDER_MASTER_KEY_ARN'],
         region: process.env['REGION']
     }
-    //console.log(kmsProviders);
-    //console.log(masterKey);
+    console.log(kmsProviders);
+    console.log(masterKey);
     return;
 }
 
@@ -79,6 +79,7 @@ module.exports.createUniqueIndex = async () => {
 }
 
 module.exports.createDataEncryptionKey = async () => {
+    await getKeyManagementProviderDetails();
     const client = await mdb.get(false);
     await client.connect();
 
