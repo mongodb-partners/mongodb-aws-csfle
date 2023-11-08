@@ -27,6 +27,7 @@
     "dotenv": "^16.0.3",
     "fast-csv": "^4.3.5",
     "mailparser": "^3.6.5",
+    "mysql": "^2.18.1",
     "mongodb": "^6.0.0",
     "mongodb-client-encryption": "^6.0.0"
   },
