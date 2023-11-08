@@ -32,7 +32,7 @@ module.exports.getDataEncryptionKey = async (schema) => {
     let dataKey = "";
     const keyVaultCollectionExist = await findKeyVaultCollectionExists();
     if(keyVaultCollectionExist) {
-        const keyVaultClient = mdb.get(false);
+        const keyVaultClient = await mdb.get(false);
         const keyExists = await mdb.findDocument(keyVaultClient, keyVaultDatabase, "dataKey", {"schema": schema});
         if(keyExists) {
             dataKey = keyExists.key;
