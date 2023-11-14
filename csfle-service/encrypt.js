@@ -110,8 +110,7 @@ module.exports.getEncryptionOption = async (schema) => {
     return encryptionOption;
 }
 
-const findKeyVaultCollectionExists = async () => {
-    const keyVaultClient = await mdb.get(false);
+const findKeyVaultCollectionExists = async (keyVaultClient) => {
     const exists = await mdb.findCollectionExists(keyVaultClient, keyVaultDatabase, keyVaultCollection);
     console.log("Exists", exists);
     return exists;
