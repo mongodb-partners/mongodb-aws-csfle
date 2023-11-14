@@ -30,25 +30,29 @@ const getKeyManagementProviderDetails = async () => {
 
 module.exports.getDataEncryptionKey = async (schema) => {
     let dataKey = "";
-    const keyVaultCollectionExist = await findKeyVaultCollectionExists();
+    await getKeyManagementProviderDetails();
+    const keyVaultClient = await mdb.get(false);
+    const keyVaultCollectionExist = await findKeyVaultCollectionExists(keyVaultClient);
     if(keyVaultCollectionExist) {
-        const keyVaultClient = await mdb.get(false);
-        const keyExists = await mdb.findDocument(keyVaultClient, keyVaultDatabase, "dataKey", {"schema": schema});
+        const keyExists = await mdb.findDocument(keyVaultClient, keyVaultDatabase, keyVaultCollection, {"masterKey.provider": provider, "masterKey.region": kmsProviders.region, "masterKey.key": kmsProviders.key});
         if(keyExists) {
+            if (!keyExists.keyAltNames.contains(schema)) {
+                await mdb.updateDocument(keyVaultClient, keyVaultDatabase, keyVaultCollection, {"masterKey.provider": provider, "masterKey.region": kmsProviders.region, "masterKey.key": kmsProviders.key}, { "$push": { "keyAltNames": schema } })
+            }
             dataKey = keyExists.key;
         } else {
-            dataKey = await createDataEncryptionKey(schema);
+            dataKey = await createDataEncryptionKey(keyVaultClient, schema);
         }
     } else {
-        await createUniqueIndex();
-        dataKey = await createDataEncryptionKey(schema);
+        await createUniqueIndex(keyVaultClient);
+        dataKey = await createDataEncryptionKey(keyVaultClient, schema);
     }
 
     return dataKey;
 }
 
-const createUniqueIndex = async () => {
-    const keyVaultClient = mdb.get(false);
+const createUniqueIndex = async (keyVaultClient) => {
+    //const keyVaultClient = mdb.get(false);
     //await keyVaultClient.connect();
     //const keyVaultDB = keyVaultClient.db(keyVaultDatabase);
     // Drop the Key Vault Collection in case you created this collection
@@ -72,19 +76,17 @@ const createUniqueIndex = async () => {
     return;
 }
 
-const createDataEncryptionKey = async (schema) => {
-    await getKeyManagementProviderDetails();
-    const client = await mdb.get(false);
-
-    const encryption = new ClientEncryption(client, {
+const createDataEncryptionKey = async (keyVaultClient, schema) => {
+    const encryption = new ClientEncryption(keyVaultClient, {
         keyVaultNamespace,
         kmsProviders,
     });
     const key = await encryption.createDataKey(provider, {
         masterKey: masterKey,
+        keyAltNames: [schema],
     });
     const dataEncryptionKey = key.toString("base64");
-    await mdb.insertDocument(client, keyVaultDatabase, "dataKey", { "schema": schema, "key": dataEncryptionKey });
+    //await mdb.insertDocument(keyVaultClient, keyVaultDatabase, "dataKey", { "schema": schema, "key": dataEncryptionKey });
     console.log("DataKeyId [base64]: ", dataEncryptionKey);
 
     return dataEncryptionKey;
