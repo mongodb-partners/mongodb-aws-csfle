@@ -74,7 +74,7 @@ module.exports.deleteDocuments = async (client, database, collection, query) => 
 
 module.exports.findCollectionExists = async (client, database, collection) => {
     let exists = false;
-    const databases = await client.db().admin().listDatabases();
+    const databases = (await client.db().admin().listDatabases()).databases;
     console.log("Databases", databases);
     for(let i in databases) {
         if (databases[i].name === database) {
