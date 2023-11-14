@@ -77,15 +77,13 @@ const createUniqueIndex = async (keyVaultClient) => {
 }
 
 const createDataEncryptionKey = async (keyVaultClient, schema) => {
-    let keyNames = [];
-    keyNames.push(schema);
     const encryption = new ClientEncryption(keyVaultClient, {
         keyVaultNamespace,
         kmsProviders,
     });
     const key = await encryption.createDataKey(provider, {
         masterKey: masterKey,
-        keyAltNames: keyNames
+        keyAltNames: [schema]
     });
     const dataEncryptionKey = key.toString("base64");
     //await mdb.insertDocument(keyVaultClient, keyVaultDatabase, "dataKey", { "schema": schema, "key": dataEncryptionKey });
