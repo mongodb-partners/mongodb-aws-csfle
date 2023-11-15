@@ -43,7 +43,7 @@ module.exports.getDataEncryptionKey = async (schema) => {
                     break;
                 }
             }
-            dataKey = keyExists.keyMaterial.toString("base64");
+            dataKey = keyExists._id.toString("base64");
         } else {
             dataKey = await createDataEncryptionKey(keyVaultClient, schema);
         }
@@ -92,7 +92,7 @@ const createDataEncryptionKey = async (keyVaultClient, schema) => {
 
     const dataEncryptionKey = key.toString("base64");
     //await mdb.insertDocument(keyVaultClient, keyVaultDatabase, "dataKey", { "schema": schema, "key": dataEncryptionKey });
-    console.log("Key, DataKeyId [base64], Binary: ", key, dataEncryptionKey, new Binary(Buffer.from(dataEncryptionKey, "base64"), 4));
+    //console.log("Key, DataKeyId [base64], Binary: ", key, dataEncryptionKey, new Binary(Buffer.from(dataEncryptionKey, "base64"), 4));
 
     return dataEncryptionKey;
 }
