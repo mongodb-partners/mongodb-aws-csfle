@@ -89,9 +89,10 @@ const createDataEncryptionKey = async (keyVaultClient, schema) => {
         masterKey: masterKey,
         keyAltNames: [schema]
     });
+
     const dataEncryptionKey = key.toString("base64");
     //await mdb.insertDocument(keyVaultClient, keyVaultDatabase, "dataKey", { "schema": schema, "key": dataEncryptionKey });
-    console.log("DataKeyId [base64]: ", dataEncryptionKey);
+    console.log("Key, DataKeyId [base64], Binary: ", key, dataEncryptionKey, new Binary(Buffer.from(dataEncryptionKey, "base64"), 4));
 
     return dataEncryptionKey;
 }
