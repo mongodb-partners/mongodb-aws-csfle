@@ -36,12 +36,15 @@ module.exports.getDataEncryptionKey = async (schema) => {
     if(keyVaultCollectionExist) {
         const keyExists = await mdb.findDocument(keyVaultClient, keyVaultDatabase, keyVaultCollection, {"masterKey.provider": provider, "masterKey.region": masterKey.region, "masterKey.key": masterKey.key});
         if(keyExists) {
-            console.log(Array.isArray(keyExists.keyAltNames));
+            let schemaExists = false;
             for (let i in keyExists.keyAltNames) {
                 if (keyExists.keyAltNames[i] === schema) {
-                    await mdb.updateDocument(keyVaultClient, keyVaultDatabase, keyVaultCollection, {"masterKey.provider": provider, "masterKey.region": masterKey.region, "masterKey.key": masterKey.key}, { "$push": { "keyAltNames": schema } })
+                    schemaExists = true;
                     break;
                 }
+            }
+            if(!schemaExists) {
+                await mdb.updateDocument(keyVaultClient, keyVaultDatabase, keyVaultCollection, {"masterKey.provider": provider, "masterKey.region": masterKey.region, "masterKey.key": masterKey.key}, { "$push": { "keyAltNames": schema } })
             }
             dataKey = keyExists._id.toString("base64");
         } else {
@@ -91,7 +94,6 @@ const createDataEncryptionKey = async (keyVaultClient, schema) => {
     });
 
     const dataEncryptionKey = key.toString("base64");
-    //await mdb.insertDocument(keyVaultClient, keyVaultDatabase, "dataKey", { "schema": schema, "key": dataEncryptionKey });
     //console.log("Key, DataKeyId [base64], Binary: ", key, dataEncryptionKey, new Binary(Buffer.from(dataEncryptionKey, "base64"), 4));
 
     return dataEncryptionKey;
