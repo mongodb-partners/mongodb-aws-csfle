@@ -37,8 +37,11 @@ module.exports.getDataEncryptionKey = async (schema) => {
         const keyExists = await mdb.findDocument(keyVaultClient, keyVaultDatabase, keyVaultCollection, {"masterKey.provider": provider, "masterKey.region": masterKey.region, "masterKey.key": masterKey.key});
         if(keyExists) {
             console.log(Array.isArray(keyExists.keyAltNames));
-            if (!keyExists.keyAltNames.contains(schema)) {
-                await mdb.updateDocument(keyVaultClient, keyVaultDatabase, keyVaultCollection, {"masterKey.provider": provider, "masterKey.region": masterKey.region, "masterKey.key": masterKey.key}, { "$push": { "keyAltNames": schema } })
+            for (let i in keyExists.keyAltNames) {
+                if (keyExists.keyAltNames[i] === schema) {
+                    await mdb.updateDocument(keyVaultClient, keyVaultDatabase, keyVaultCollection, {"masterKey.provider": provider, "masterKey.region": masterKey.region, "masterKey.key": masterKey.key}, { "$push": { "keyAltNames": schema } })
+                    break;
+                }
             }
             dataKey = keyExists.keyMaterial.toString("base64");
         } else {
