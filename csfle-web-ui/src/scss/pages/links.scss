@@ -1,0 +1,83 @@
+@import "../common/common";
+
+.linksframe {
+    border-width: 0px;
+    border-style: solid;
+    border-color: $color-tan;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+    line-height: 1.67rem;
+    padding: 0px 0px 5px;
+    position: relative;
+    background-color: $color-shark;
+    float: left;
+}
+.linksgroup {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+}
+
+.linkitem {
+    background-color: $color-white;
+    padding: 10px;
+    width: calc(33.333333% - 40px);
+    margin: 10px 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.4);
+    a {
+        text-decoration: none;
+    }
+}
+
+.linktitle {
+    width: 100%;
+    color: $color-abbey;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 0px 0px 10px;
+    text-align: center;
+    line-height: 1.8rem;
+}
+
+.linkpiccontrol {
+    width: 30%;
+    margin: 0 35%;
+}
+
+.linktext {
+    width: calc(100% - 20px);
+    margin: 5px 10px;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    color: $color-shark;
+    line-height: 1.67rem;
+}
+
+@media screen and (max-width: 800px) {
+    .linkitem {
+        width: calc(50% - 40px);
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .linkpiccontrol {
+        width: 50%;
+        margin: 0 25%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .linkitem {
+        width: calc(100% - 40px);
+    }
+}

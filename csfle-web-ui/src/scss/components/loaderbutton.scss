@@ -1,0 +1,67 @@
+@import "../common/common";
+
+.loaderbutton {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    border: 1px solid $color-crete;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+    background-color: $color-atlantis;
+    background-image: linear-gradient(to right, $color-crete , $color-atlantis);
+    button {
+        width: 100%;
+        display: block;
+        text-align: center;
+        background-color: $color-transparent;
+        border: none;
+        color: $color-white;
+        font-family: Open Sans, Sans-Serif;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 5px 25px;
+        cursor: pointer;
+        &:disabled {
+            border: none;
+            opacity: 0.6;
+            cursor: default;
+        }
+    }
+    &.facebook {
+        border: 1px solid $color-blue-jay;
+        background-color: $color-san-marino;
+        background-image: linear-gradient(to right, $color-san-marino , $color-san-marino);
+        min-width: 230px;
+    }
+    &.google {
+        border: 1px solid $color-oxblood;
+        background-color: $color-punch;
+        background-image: linear-gradient(to right, $color-punch , $color-punch);
+        min-width: 230px;
+    }
+    &.playdown {
+        background-color: $color-white-dark;
+        color: $color-abbey;
+        opacity: 0.8;
+    }
+}
+
+.loaderbutton .spinning {
+    margin-right: 7px;
+    top: 2px;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        transform: scale(1) rotate(360deg);
+    }
+}
+

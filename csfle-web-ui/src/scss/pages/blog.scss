@@ -1,0 +1,117 @@
+@import "../common/common";
+
+.blogframe {
+    border-width: 0px;
+    border-style: solid;
+    border-color: $color-tan;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+    line-height: 22px;
+    padding: 0px 0px 10px;
+    position: relative;
+    background-color: $color-shark;
+    float: left;
+}
+
+.bloggroup {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+}
+
+.blogitem {
+    background-color: $color-white;
+    padding: 10px;
+    width:calc(100% - 40px);
+    margin: 10px 10px 0px;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:0 1px 3px rgba(0,0,0,.4);
+    a {
+        text-decoration: none;
+    }
+}
+
+.blogpiccontrol {
+    width: 25%;
+    margin: 0 auto;
+    float: left;
+}
+
+.blogsummary {
+    width: calc(75% - 20px);
+    margin: 0 10px;
+    padding: 0px;
+    float: left;
+}
+
+.blogheader {
+    width: 100%;
+    margin: 0px 0px 5px;
+    padding: 5px 0px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: $color-crete;
+    line-height: 1.8rem;
+    text-align: left;
+    border-bottom: 1px solid $color-shark;
+}
+
+.blogauthor, .blogshare, .blogtitle {
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px 0px;
+    font-weight: normal;
+    font-size: 1rem;
+    color: $color-abbey;
+    text-align: left;
+    line-height: 1.67rem;
+    svg {
+        display: inline;
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .blogpiccontrol {
+        width: 30%;
+    }
+
+    .blogsummary {
+        width: calc(70% - 20px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .blogpiccontrol {
+        width: 40%;
+        margin: 0 30%;
+    }
+    .blogsummary {
+        width: calc(100% - 20px);
+    }
+    .blogheader {
+        font-size: 1rem;
+    }
+    .blogauthor, .blogshare, .blogtitle {
+        font-size: 0.95rem;
+        padding: 3px 0px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .blogpiccontrol {
+        width: 60%;
+        margin: 0 20%;
+    }
+
+    .blogsummary {
+        width: calc(100% - 20px);
+    }
+}

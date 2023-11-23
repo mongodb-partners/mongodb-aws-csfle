@@ -1,0 +1,383 @@
+@import "../common/common";
+
+.quotepageframe {
+  border-width: 0px;
+  border-style: solid;
+  border-color: $color-tan;
+  width: 100%;
+  height: auto;
+  margin: 10px 0px;
+  line-height: 1.5rem;
+  position: relative;
+  background-color: $color-athens-grey;
+  float: left;
+}
+
+.servicegroupcontainer {
+  width: calc(100% - 40px);
+  height: auto;
+  margin: 0px 10px;
+  background-color: $color-white-dark;
+  padding: 0px 10px 5px;
+}
+
+.servicegroup {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.servicegrouptitle {
+  text-align: justify;
+  width: 100%;
+  padding: 0px;
+  margin: 10px 0px;
+  color: $color-abbey;
+  img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.subservicecontainer {
+  width: calc(33.3333333% - 60px);
+  padding: 5px 15px 0px;
+  margin: 0px 15px 5px;
+  float: left;
+  height: auto;
+  background-color: $color-white-dark;
+}
+
+.highlight {
+  background-color: $color-hot-cinnamon;
+  color: $color-white;
+}
+
+.playdown {
+  background-color: $color-white-dark;
+  color: $color-blackboard;
+}
+
+.stepcontainer {
+  width: 80%;
+  height: auto;
+  margin: 0 10%;
+  background-color: $color-transparent;
+  float: left;
+}
+
+.quotecontainer {
+  width: 50%;
+  height: auto;
+  line-height: 1.5rem;
+  margin-left: 25%;
+  padding: 0px;
+  float: left;
+}
+
+.quotequestionheader {
+  color: $color-black;
+  font-family: Open Sans, Sans-Serif;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.67rem;
+  padding: 0px 5px 5px;
+  margin: 0px 0px 5px;
+  border-bottom: 1px solid $color-blackboard;
+}
+
+.quotequestion {
+  width: calc(50% - 10px);
+  height: auto;
+  padding: 5px;
+  float: left;
+  text-align: right;
+}
+
+.quotequestionlabel {
+  color: $color-black;
+  font-family: Open Sans, Sans-Serif;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+  padding: 0px 5px;
+}
+
+.quotenote {
+  width: calc(100% - 10px);
+  height: auto;
+  margin: 0;
+  padding: 0px 5px;
+  text-align: justify;
+  float: left;
+}
+
+.quotenotelabel {
+  color: $color-blackboard;
+  font-family: Open Sans, Sans-Serif;
+  font-size: 0.9rem;
+  font-weight: normal;
+  line-height: 1.4rem;
+  padding: 0px;
+}
+
+.quoteresponse {
+  width: calc(50% - 10px);
+  height: auto;
+  padding: 5px;
+  float: left;
+  line-height: 1.5rem;
+}
+
+.quoteresponselabel {
+  color: $color-black;
+  font-family: Open Sans, Sans-Serif;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+  padding-left: 35px;
+}
+
+.quoteresponseinput {
+  width: 50%;
+}
+
+.quotationpersonalframe {
+  border-width: 0px;
+  border-style: solid;
+  border-color: $color-tan;
+  width: 50%;
+  height: auto;
+  margin: 10px 25% 5px;
+  line-height: 1.5rem;
+  position: relative;
+  background-color: $color-athens-grey;
+  float: left;
+  padding-bottom: 10px;
+}
+
+.personalmessage {
+  text-align: justify;
+}
+
+.quotationdisplaycontainer {
+  width: calc(100% - 40px);
+  height: auto;
+  line-height: 1.5rem;
+  margin: 0px 10px 10px;
+  padding: 5px 10px 0px;
+  background-color: $color-white-dark;
+  float: left;
+}
+
+.quotationgeneratesection {
+  margin: 0px;
+  padding: 5px;
+  font-family: Open Sans, Sans-Serif;
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: left;
+}
+
+.servicelist {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.serviceitem {
+  width: 100%;
+}
+
+.serveaseenquiryquestion {
+  display: block;
+  width: 100%
+}
+
+.serveaseenquirylabel {
+  color: $color-blackboard;
+  font-family: Open Sans, Sans-Serif;
+  font-size: 0.9rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+  left: 1%;
+}
+.serveaseenquirynote {
+  color: $color-blackboard;
+  font-family: Open Sans, Sans-Serif;
+  font-size: 0.9rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+  left: 1%;
+}
+
+.serveaseenquiryoptions {
+  display: block;
+  width: 100%
+}
+
+.linktext {
+  display: inline;
+  color: $color-oxblood;
+  font-family: Open Sans, Sans-Serif;
+  font-size: 0.9rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.supplierlist {
+  padding: 0 5%;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.supplier {
+  width: 90%;
+  float: left;
+}
+
+.suppliersection {
+  margin: 5px 0px;
+}
+
+.suppliertitle {
+  font-family: Open Sans, Sans-Serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.supplierheader {
+  font-family: Open Sans, Sans-Serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.suppliertext {
+  font-family: Open Sans, Sans-Serif;
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+.supplierselection {
+  width: 10%;
+  float: left;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.supplierrating {
+  width: 5%;
+  float: left;
+  text-align: center;
+}
+
+.supplierstarrating {
+  width: 95%;
+  float: left;
+  text-align: left;
+}
+
+@media screen and (min-width: 661px) and (max-width: 800px) {
+  .subservicecontainer {
+    width: calc(33.3333333% - 40px);
+    padding: 5px 10px 0px;
+    margin: 0px 10px 5px;
+  }
+}
+
+@media screen and (min-width: 541px) and (max-width: 660px) {
+  .subservicecontainer {
+    width: calc(33.3333333% - 20px);
+    padding: 5px 5px 0px;
+    margin: 0px 5px 5px;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 540px) {
+  .subservicecontainer {
+    width: calc(100% - 100px);
+    padding: 5px 25px 0px;
+    margin: 0px 25px 5px;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 600px) {
+  .quotationpersonalframe {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .subservicecontainer {
+    width: calc(100% - 60px);
+    padding: 5px 15px 0px;
+    margin: 0px 15px 5px;
+  }
+  .quotationpersonalframe {
+    width: 100%;
+    margin-left: 0%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .quotationdisplaycontainer {
+    width: calc(100% - 20px);
+    margin: 0px 5px 10px;
+    padding: 5px 5px 0px;
+  }
+  /* comes into effect for screens less than or equal to 320 pixels */
+  .stepcontainer {
+    width: 90%;
+    margin: 0 5%;
+  }
+  .quotecontainer {
+    width: 80%;
+    margin-left: 10%;
+  }
+  .quotequestion, .quoteresponse {
+    width: calc(100% - 10px);
+    height: auto;
+    padding: 5px;
+    float: left;
+    text-align: left;
+    select {
+      width: 100%;
+    }
+  }
+  .responselabel {
+    padding-left: 0px;
+  }
+  .supplierrating {
+    width: 10%;
+  }
+  .supplierstarrating {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .quotationdisplaycontainer {
+    width: calc(100% - 8px);
+    margin: 0px 2px 10px;
+    padding: 5px 2px 0px;
+  }
+
+  .stepcontainer {
+    width: 100%;
+    margin: 0 0%;
+  }
+  .quotecontainer {
+    width: 90%;
+    margin-left: 5%;
+  }
+}

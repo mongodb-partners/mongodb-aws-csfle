@@ -1,0 +1,183 @@
+@import "../common/common";
+
+.articleframe {
+    border-width: 0px;
+    border-style: solid;
+    border-color: $color-tan;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+    line-height: 22px;
+    padding: 0px 0px 10px;
+    position: relative;
+    background-color: $color-shark;
+    float: left;
+}
+
+.articlecontainer {
+    background-color: $color-white-dark;
+    width: calc(100% - 40px);
+    height: auto;
+    font-family: Open Sans, Sans-Serif;
+    font-weight: normal;
+    margin: 0px 10px;
+    padding: 0px 10px;
+    line-height: 1.67rem;
+    float: left;
+}
+
+.articlettitle {
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    color: $color-white;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.articleshare {
+    padding: 5px 0px;
+    text-align: center;
+    margin: 0 auto;
+    letter-spacing: 2px;
+}
+
+.articlepiccontrol {
+    width: calc(100% - 20px);
+    padding: 10px;
+    float: left;
+    text-align: center;
+}
+
+.article {
+    width: calc(100% - 20px);
+    padding: 0px 10px;
+    float: left;
+}
+
+.articletext {
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1.67rem;
+    color: $color-abbey;
+    text-align: justify;
+    margin: 5px auto;
+}
+
+.articlelogocontrol {
+    width: calc(50% - 40px);
+    padding: 10px 20px;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+}
+
+.articlemarkdown {
+    padding: 0px 10px;
+    table {
+        border: 0px solid $color-shark;
+        th {
+            font-weight: bold;
+            color: $color-white-dark;
+            border: 1px solid $color-shark;
+            text-align: center;
+            background-color: $color-athens-grey;
+            padding: 3px 5px;
+            img {
+                display: inline-block;
+                width: 2rem;
+                height: 2rem;
+                fill: $color-shark;
+            }
+        }
+        td {
+            border: 1px solid $color-shark;
+            text-align: center;
+            font-weight: normal;
+            color: $color-abbey;
+            padding: 3px 5px;
+        }
+    }
+    h2 {
+        font-family: Open Sans, Lucida Calligraphy, Sans-Serif;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: $color-crete;
+        padding: 5px 0px;
+        margin: 0 auto;
+        font-size-adjust: none;
+        font-stretch: normal;
+        line-height: 1.8rem;
+    }
+    h3 {
+        font-family: Open Sans, Lucida Calligraphy, Sans-Serif;
+        font-size: 1rem;
+        font-weight: bold;
+        color: $color-abbey;
+        padding: 10px 0px;
+        margin: 0 0 0 5px;
+        font-size-adjust: none;
+        font-stretch: normal;
+        line-height: 1.67rem;
+    }
+    ul {
+        margin: 0 auto;
+        li {
+            line-height: 1.67rem;
+            font-family: Open Sans, Sans-Serif;
+            font-size: 1rem;
+            font-weight: normal;
+            color: $color-abbey;
+        }
+    }
+    pre {
+        code {
+            width: auto;
+            display: inline-block;
+            background-color: $color-abbey;
+            padding: 5px 10px;
+            text-wrap: normal;
+            white-space: pre-wrap;       /* Since CSS 2.1 */
+            white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            color: $color-metallic-yellow;
+        }
+    }
+    code {
+        width: auto;
+        display: inline-block;
+        background-color: $color-abbey;
+        padding: 5px 10px;
+        text-wrap: normal;
+        white-space: pre-wrap;       /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+        white-space: -o-pre-wrap;    /* Opera 7 */
+        word-wrap: break-word;       /* Internet Explorer 5.5+ */
+        color: $color-metallic-yellow;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .articlepiccontrol, .article {
+        width: calc(100% - 20px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .articlecontainer {
+        width: calc(100% - 20px);
+        margin: 0px 10px;
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .articletext {
+        text-align: left;
+    }
+    .articlelogocontrol {
+        width: calc(100% - 40px);
+        padding: 10px 20px 0px;
+    }
+}

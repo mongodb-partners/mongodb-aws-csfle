@@ -1,0 +1,43 @@
+@import "../common/common";
+
+.tilecontainer {
+    float: left;
+    height: auto;
+    background-color: $color-athens-grey;
+}
+
+.tile {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: center;
+    line-height: 1.5rem;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .7);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .7);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .7);
+    cursor: pointer;
+    >span {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+}
+
+.highlight {
+    background-color: $color-hot-cinnamon;
+    color: $color-white;
+}
+
+.playdown {
+    background-color: $color-white-dark;
+    color: $color-blackboard;
+    &:hover {
+        background-color: $color-ziggurat;
+    }
+}

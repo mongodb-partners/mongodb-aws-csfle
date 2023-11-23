@@ -1,0 +1,141 @@
+@import "../common/common";
+
+.radio {
+    display: inline-block;
+    height: auto;
+    background-color: $color-transparent;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.radioboxlabel {
+    position: relative;
+    padding-left: 20px;
+    padding-right: 8px;
+    cursor: pointer;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: normal;
+    color: $color-shark;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &:hover {
+        input[type="radio"] {
+            ~ {
+                .radiobox {
+                    background-color: $color-ziggurat;
+                }
+            }
+        }
+    }
+    input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        display: none;
+        left: 7px;
+        top: 5px;
+        &:checked {
+            ~ {
+                .radiobox {
+                    background-color: $color-atlantis;
+                    &:after {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    .radiobox {
+        &:after {
+            top: 5px;
+            left: 5px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: $color-white;
+        }
+    }
+}
+
+.radiobox {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 18px;
+    width: 18px;
+    background-color: $color-white;
+    border-radius: 50%;
+    border: 1px solid $color-tan;
+    &:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+}
+
+.styledradiobox {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 1px solid $color-tan;
+    border-radius: 50%;
+    transition: all 150ms;
+}
+
+.radioboxicon {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke-width: 0px;
+    stroke: $color-white;
+}
+
+.radioboxvisible {
+    visibility: visible;
+}
+
+.radioboxhidden {
+    visibility: hidden;
+}
+
+.focusbordercolor {
+    box-shadow: 0 0 0 2px $color-tan;
+}
+
+.readioboxchecked {
+    opacity: 1;
+}
+
+.readioboxunchecked {
+    opacity: 0.55;
+}
+
+.radiodot {
+    fill: $color-white;
+    stroke-width: 0px;
+    stroke: $color-tan;
+}
+
+.radiooutline {
+    fill: $color-atlantis;
+    stroke-width: 0px;
+    stroke: $color-tan;
+}
+
+.radioboxtext {
+    margin-left: 5px;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: normal;
+    color: $color-shark;
+}
+
+.required {
+    color: $color-red;
+}

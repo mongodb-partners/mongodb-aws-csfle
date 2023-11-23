@@ -1,0 +1,42 @@
+@import "../common/common";
+
+.errorframe {
+    border-width: 0px;
+    border-style: solid;
+    border-color: $color-tan;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+    line-height: 1.67rem;
+    position: relative;
+    background-color: $color-pigeon-post;
+    float: left;
+}
+
+.errormessage {
+    margin: auto;
+    color: $color-black;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.67rem;
+    padding: 10px;
+    text-align: justify;
+    a {
+        text-decoration: underline;
+        color: $color-grape;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /* comes into effect for screens between 321 and 480 pixels (inclusive) */
+    .errormessage {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .errormessage {
+        text-align: left;
+    }
+}

@@ -1,0 +1,114 @@
+@import "../common/common";
+
+.flag-select {
+    position: relative;
+    display: inline-block;
+    vertical-align: inherit;
+    color: $color-grape;
+    text-align: left;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: $color-transparent;
+    width: 100%;
+    height: auto;
+    img {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        top: 0px;
+    }
+    .selected--flag--option {
+        cursor: pointer;
+        padding: 3px 8px;
+        &:before {
+            content: ' ';
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 999;
+        }
+        &:focus {
+            outline: none;
+        }
+        .country-label {
+            padding-left: 9px;
+        }
+    }
+    .country-flag {
+        cursor: pointer;
+        .country-label {
+            font-size: 1rem;
+            position: relative;
+        }
+    }
+    .flag-options {
+        position: absolute;
+        z-index: 999999;
+        border: 0px solid rgb(189, 187, 187);
+        border-radius: 3px;
+        color: $color-white;
+        background: $color-blackboard;
+        margin-top: 5px;
+        padding: 8px 0;
+        max-height: 160px;
+        overflow: auto;
+    }
+    .flag-options.to--left {
+        right: 10px;
+    }
+    .flag-option {
+        cursor: pointer;
+        padding: 0px 8px 3px 8px;
+        margin: 4px 0;
+        white-space: nowrap;
+        &:hover {
+            background: #eaeaea;
+        }
+        &:focus {
+            outline: none;
+            background: #eaeaea;
+        }
+        .country-label {
+            padding: 0 9px;
+        }
+    }
+    .flag-option.has-label {
+        padding: 0px 20px 3px 8px;
+    }
+    .filterBox {
+        width: 100%;
+        font-family: Roboto, Sans-Serif;
+        font-size: 1rem;
+        font-style: normal;
+        color: $color-white;
+        input {
+            width: 90%;
+            margin: 0 4%;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    .arrow-down {
+        color: $color-grape;
+        padding: 2px;
+    }
+    .hidden {
+        display: none;
+    }
+    .no--focus {
+        pointer-events: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .flag-select {
+        text-align: center;
+        .flag-options {
+            text-align: left;
+            margin-left: calc(50% - 96px);
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@import "../common/common";
+
+.acknowledgementframe {
+  border-width: 0px;
+  border-style: solid;
+  border-color: $color-tan;
+  width: 75%;
+  height: auto;
+  margin: 10px 12.5% 10px;
+  line-height: 1.67rem;
+  position: relative;
+  background-color: $color-shark;
+  float: left;
+  padding: 10px 0px;
+}
+
+.acknowledgementcontainer {
+  width: calc(100% - 30px);
+  height: auto;
+  line-height: 1.67rem;
+  margin: 0px 10px;
+  padding: 5px 5px 0px;
+  background-color: $color-white-dark;
+  float: left;
+}
+
+.acknowledgement {
+  font-family: Open Sans, Sans-Serif;
+  font-size: 1rem;
+  font-weight: normal;
+  color: $color-abbey;
+  line-height: 1.67rem;
+  text-align: justify-all;
+  padding: 5px 0px;
+}
+
+@media screen and (max-width: 600px) {
+  .acknowledgementframe {
+    width: 90%;
+    margin-left: 5%;
+  }
+}

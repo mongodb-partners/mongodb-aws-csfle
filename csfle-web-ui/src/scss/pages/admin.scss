@@ -1,0 +1,417 @@
+@import "../common/common";
+
+.adminframe {
+    border-width: 0px;
+    border-style: solid;
+    border-color: $color-tan;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+    line-height: 22px;
+    padding: 0px 0px 10px;
+    position: relative;
+    background-color: $color-shark;
+    float: left;
+}
+
+.admincontainer {
+    background-color: $color-white-dark;
+    width: calc(100% - 40px);
+    height: auto;
+    font-family: Open Sans, Sans-Serif;
+    font-weight: normal;
+    margin: 0px 10px;
+    padding: 10px 10px;
+    line-height: 1.67rem;
+    float: left;
+}
+
+.categoryquotegroup {
+    margin-top: 5px;
+    width: 50%;
+    margin-left: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+}
+
+.categoryquotecontainer {
+    background-color: $color-hot-cinnamon;
+    padding: 10px 5px 0px;
+    width: calc(33.333333% - 20px);
+    margin: 0px 5px 10px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+}
+
+.categoryquotepiccontrol {
+    width: 50px;
+    height: 50px;
+}
+
+.categoryquoteheader {
+    color: $color-white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    /* comes into effect for screens between 321 and 480 pixels (inclusive) */
+    .categoryquotegroup {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .categoryquotepiccontrol {
+        width: 45px;
+        height: 45px;
+    }
+    .categoryquoteheader {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (min-width: 621px) and (max-width: 800px) {
+    .categorycontainer {
+        padding: 5px 5px 5px;
+        width: calc(100% - 30px);
+        text-align: justify;
+    }
+    .categorypiccontrol {
+        margin-right: 5px;
+        float: left;
+    }
+    .categoryheader {
+        margin-top: 20px;
+        width: calc(100% - 70px);
+        float: left;
+    }
+    .categorymessage {
+        font-size: 0.9rem;
+        top: 33%;
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 620px) {
+    .countrycategory {
+        width: 95%;
+        margin-bottom: 10px;
+    }
+    .categorycontainer {
+        padding: 15px 5px 0px;
+        width: calc(50% - 30px);
+        text-align: center;
+    }
+    .categorypiccontrol {
+        margin-right: auto;
+        float: none;
+    }
+    .categoryheader {
+        margin-top: 10px;
+        width: auto;
+        float: none;
+    }
+    .categorymessage {
+        font-size: 0.9rem;
+        top: 9%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .countrycategoryframe {
+        width: calc(100% - 20px);
+        padding: 5px 10px 0px;
+    }
+    .countrycategory {
+        width: 95%;
+        margin-bottom: 10px;
+    }
+    .categorycontainer {
+        padding: 5px 5px 5px;
+        width: calc(100% - 30px);
+        text-align: left;
+    }
+    .categorypiccontrol {
+        margin-right: 5px;
+        float: left;
+    }
+    .categoryheader {
+        margin-top: 20px;
+        width: calc(100% - 70px);
+        float: left;
+    }
+    .categorymessage {
+        font-size: 0.9rem;
+        top: 21%;
+    }
+
+    .categoryquotegroup {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .categoryquotepiccontrol {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.processframe {
+    border-width: 0px;
+    border-style: solid solid solid solid;
+    border-color: $color-tan;
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin: 10px 0px;
+    display: inline-block;
+    background-color: $color-pigeon-post;
+}
+
+.processgroup {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.processtitle {
+    width: 100%;
+    color: $color-grape;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1.8rem;
+    text-align: center;
+    padding: 10px 0px;
+    margin: 0px
+}
+
+.processcontainer {
+    width: calc(33.3333333% - 20px);
+    padding: 10px 5px 0px;
+    margin: 0px 5px 5px;
+    float: left;
+    height: auto;
+    background-color: $color-athens-grey;
+}
+
+.processname {
+    width: 100%;
+    height: auto;
+    background-color: $color-transparent;
+    color: $color-grape;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0px 0px 5px 0px;
+    text-align: center;
+    line-height: 1.67rem;
+    margin: 5px 0px;
+    img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.processdescription {
+    width: calc(100% - 10px);
+    height: auto;
+    color: $color-black;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.67rem;
+    text-align: justify;
+    padding: 5px;
+    margin: 5px 0px 10px;
+    background-color: rgb(251,251,251);
+}
+
+@media screen and (max-width: 600px) {
+    .processcontainer {
+        width: 98.5%;
+        padding: 5px 0.75%;
+    }
+}
+
+.promotionbar {
+    width: 100%;
+    height: auto;
+    background-color: $color-shark;
+    clear: both;
+    float: left;
+}
+
+.promotionframe {
+    border-width: 0px;
+    border-style: solid solid solid solid;
+    border-color: $color-tan;
+    width: 90%;
+    height: auto;
+    position: relative;
+    margin: 10px 5%;
+    display: inline-block;
+    background-color: $color-transparent;
+}
+
+.promotiongroup {
+    width: calc(100% - 10px);
+    height: auto;
+    text-align: center;
+    padding: 5px 5px 0px;
+    margin: 0 auto;
+    background-color: $color-transparent;
+}
+
+.promotionheader {
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1.8rem;
+    color: $color-grape;
+    margin: 0;
+    padding: 10px 0px;
+}
+
+.promotion {
+    width: 100%;
+    background-color: $color-shark;
+}
+
+.promotionbanner {
+    width: 98%;
+    padding: 1%;
+    float: left;
+    height: 400px;
+}
+
+.promotiondetail {
+    width: 98%;
+    padding: 1%;
+    float: left;
+}
+
+.promotiontitle {
+    padding: 5px;
+    margin: 0px 0px 5px;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 4.1rem;
+    color: $color-white;
+    text-shadow:
+            -1px -1px 0 $color-abbey,
+            1px -1px 0 $color-abbey,
+            -1px 1px 0 $color-abbey,
+            1px 1px 0 $color-abbey;
+    text-align: left;
+}
+
+.promotionblog {
+    padding: 5px;
+    margin: 0;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 2rem;
+    text-shadow:
+        -1px -1px 0 $color-abbey,
+        1px -1px 0 $color-abbey,
+        -1px 1px 0 $color-abbey,
+        1px 1px 0 $color-abbey;
+    font-weight: normal;
+    line-height: 3.33rem;
+    color: $color-white-dark;
+    text-align: left;
+    a {
+        color: $color-silver;
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width: 821px) and (max-width: 1080px) {
+    .promotionbanner {
+        height: 360px;
+    }
+}
+
+@media screen and (min-width: 621px) and (max-width: 820px) {
+    .promotionbanner {
+        width: 98%;
+        padding: 1%;
+        float: left;
+        height: 320px;
+    }
+    .promotiondetail {
+        width: 98%;
+        padding: 1%;
+        float: left;
+    }
+    .processdescription {
+        text-align: left;
+    }
+    .promotiontitle {
+        font-size: 2rem;
+    }
+    .promotionblog {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 620px) {
+    .promotionbanner {
+        width: 98%;
+        padding: 1%;
+        float: left;
+        height: 280px;
+    }
+    .promotiondetail {
+        width: 98%;
+        padding: 1%;
+        float: left;
+    }
+    .processdescription {
+        text-align: left;
+    }
+    .promotiontitle {
+        font-size: 1.6rem;
+    }
+    .promotionblog {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .promotionbanner {
+        width: 98%;
+        padding: 1%;
+        float: left;
+        height: 240px;
+    }
+    .promotiondetail {
+        width: 98%;
+        padding: 1%;
+        float: left;
+    }
+    .serveasebrand, .defaultmessage, .categorycontainer, .processdescription, .promotionblog {
+        text-align: left;
+    }
+    .promotiontitle {
+        font-size: 1.2rem;
+    }
+    .promotionblog {
+        font-size: 1rem;
+    }
+}

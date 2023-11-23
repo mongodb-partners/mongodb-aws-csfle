@@ -1,0 +1,90 @@
+@import "../common/common";
+
+.stayconnected {
+    width: calc(100% - 40px);
+    float: left;
+    margin: 0px 10px;
+    padding: 5px 10px;
+    background-color: $color-white-dark;
+    .formcontainer, .connectedbuttoncontainer {
+        width: calc(40% - 10px);
+        float: left;
+    }
+    .connectedbuttoncontainer {
+        height: auto;
+        margin: 47px 0px 10px;
+        background-color: $color-transparent;
+        border: 0px solid $color-tan;
+        text-align: center;
+    }
+    .subscriptionacknowledgementcontainer {
+        height: auto;
+        margin: 0;
+        background-color: $color-transparent;
+        border: 0px solid $color-tan;
+        .subscriptionacknowledgement {
+            font-family: Open Sans, Sans-Serif;
+            font-size: 1rem;
+            font-weight: normal;
+            color: $color-hot-cinnamon;
+            line-height: 1.67rem;
+            text-align: justify;
+            padding: 0px;
+        }
+    }
+}
+
+.stayconnectedenquiryquestion {
+    display: block;
+    width: 100%
+}
+
+.stayconnectedenquirylabel {
+    color: $color-abbey;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.67rem;
+    left: 1%;
+}
+
+.stayconnectedenquirynote {
+    color: $color-abbey;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 0.9rem;
+    font-weight: normal;
+    line-height: 1.5rem;
+    left: 1%;
+}
+
+.stayconnectedenquiryoptions {
+    display: block;
+    width: 100%
+}
+
+@media screen and (min-width: 451px) and (max-width: 720px) {
+    .stayconnected {
+        .formcontainer, .connectedbuttoncontainer {
+            width: calc(70% - 20px);
+            margin-left: 15%;
+        }
+        .connectedbuttoncontainer, .subscriptionacknowledgementcontainer {
+            margin-top: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .stayconnected {
+        .formcontainer, .connectedbuttoncontainer {
+            width: calc(100% - 20px);
+            margin-left: 0%
+        }
+        .connectedbuttoncontainer, .subscriptionacknowledgementcontainer {
+            margin-top: 0;
+        }
+        .connectionacknowledgement {
+            text-align: left;
+        }
+    }
+}

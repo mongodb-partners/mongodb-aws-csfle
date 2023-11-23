@@ -1,0 +1,50 @@
+@import "../common/common";
+
+.termsandconditionsframe {
+    border-width: 0px;
+    border-style: solid;
+    border-color: $color-tan;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+    line-height: 22px;
+    position: relative;
+    background-color: $color-shark;
+    float: left;
+}
+
+.termcontainer {
+    background-color: $color-white-dark;
+    width: calc(100% - 40px);
+    height: auto;
+    color: $color-black;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.67rem;
+    padding: 0px 10px;
+    margin: 0px 10px 10px;
+    float: left;
+}
+
+.term {
+    width: 100%;
+    text-align: justify;
+    float: left;
+}
+
+.termheader {
+    font-weight: bold;
+    color: $color-crete;
+}
+
+.termdescription {
+    font-weight: normal;
+    color: $color-abbey;
+}
+
+@media screen and (max-width: 400px) {
+    .term {
+        text-align: left;
+    }
+}

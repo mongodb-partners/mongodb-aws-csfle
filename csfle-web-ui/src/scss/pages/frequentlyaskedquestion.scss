@@ -1,0 +1,59 @@
+@import "../common/common";
+
+.faqframe {
+    border-width: 0px;
+    border-style: solid;
+    border-color: $color-tan;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+    line-height: 22px;
+    position: relative;
+    background-color: $color-shark;
+    float: left;
+}
+
+.faqcontainer {
+    background-color: $color-transparent;
+    width: calc(100% - 20px);
+    height: auto;
+    color: $color-black;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.67rem;
+    padding: 0px;
+    margin: 0px 10px;
+    float: left;
+}
+
+.faqsection {
+    width: calc(100% - 10px);
+    padding: 10px 5px;
+    height: auto;
+    margin-bottom: 10px;
+    background-color: $color-white-dark;
+    float: left;
+}
+
+.faqtitle {
+    font-weight: bold;
+    color: $color-crete;
+}
+
+.faq {
+    width: 100%;
+    text-align: justify;
+    float: left;
+}
+
+.faqdescription {
+    font-weight: normal;
+    color: $color-abbey;
+}
+
+@media screen and (max-width: 400px) {
+    .faq {
+        text-align: left;
+    }
+}

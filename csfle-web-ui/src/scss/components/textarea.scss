@@ -1,0 +1,90 @@
+@import "../common/common";
+
+.text {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    background-color: $color-transparent;
+    margin: 0 auto;
+    padding: 0px;
+    label {
+        width: 100%;
+        display: block;
+        text-align: left;
+        float: left;
+        color: $color-shark;
+        font-family: Open Sans, Sans-Serif;
+        font-size: 1rem;
+        font-weight: normal;
+    }
+    textarea {
+        width: calc(100% - 10px);
+        height: auto;
+        display: block;
+        text-align: left;
+        float: left;;
+        border: 0px solid $color-tan;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+        -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+        color: $color-abbey;
+        font-family: Open Sans, Sans-Serif;
+        font-size: 1rem;
+        font-weight: normal;
+        resize: none;
+        padding: 5px;
+    }
+}
+
+textarea {
+    &:required {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-required.png");
+            background-repeat: no-repeat;
+        }
+        &:valid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-valid.png");
+            background-repeat: no-repeat;
+        }
+    }
+    &:focus {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-invalid.png");
+            background-repeat: no-repeat;
+        }
+    }
+    &::-webkit-input-placeholder {
+        color: $color-nevada;
+        font-size: 1rem;
+    }
+    &:-moz-placeholder {
+        color: $color-nevada;
+        font-size: 1rem;
+    }
+    &::-moz-placeholder {
+        color: $color-nevada;
+        font-size: 1rem;
+    }
+    &:-ms-input-placeholder {
+        color: $color-nevada;
+        font-size: 1rem;
+    }
+}
+
+textarea[placeholder] {
+    color: $color-nevada;
+    font-size: 1rem;
+}
+
+.required {
+    color: $color-red;
+}

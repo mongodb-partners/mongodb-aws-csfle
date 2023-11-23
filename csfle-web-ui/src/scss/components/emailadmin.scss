@@ -1,0 +1,30 @@
+@import "../common/common";
+
+.emailcontainer {
+  width: calc(100% - 10px);
+  margin: 5px;
+}
+
+.emailfoldergroup, .emailpreviewgroup {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+  border-right: 1px solid $color-abbey;
+}
+
+.emailfolderitem {
+  background-color: $color-white;
+  padding: 0px;
+  width: calc(100% - 10px);
+  margin: 2px 5px;
+  text-align: left;
+  font-size: 0.85rem;
+  cursor: pointer;
+  a {
+    text-decoration: none;
+  }
+}

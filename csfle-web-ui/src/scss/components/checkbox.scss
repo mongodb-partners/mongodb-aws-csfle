@@ -1,0 +1,86 @@
+@import "../common/common";
+
+.check {
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    height: auto;
+    background-color: $color-transparent;
+    margin: 0 auto;
+    padding-bottom: 5px;
+}
+
+.checkboxlabel {
+    position: relative;
+    padding-left: 20px;
+    padding-right: 8px;
+    cursor: pointer;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: normal;
+    color: $color-shark;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkboxtext {
+    margin-left: 5px;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: normal;
+    color: $color-shark;
+}
+
+.required {
+    color: $color-red;
+}
+
+.hidecheckbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    display: none;
+}
+
+.styledcheckbox {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid $color-tan;
+    border-radius: 0px;
+    transition: all 150ms;
+}
+
+.checkboxicon {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke-width: 2px;
+    stroke: $color-white;
+}
+
+.checkboxvisible {
+    visibility: visible;
+}
+
+.checkboxhidden {
+    visibility: hidden;
+}
+
+.focuscheckboxborder {
+    box-shadow: 0 0 0 2px $color-tan;
+}
+
+.checkboxchecked {
+    background: $color-atlantis;
+}
+
+.checkboxunchecked {
+    background: $color-white;
+}

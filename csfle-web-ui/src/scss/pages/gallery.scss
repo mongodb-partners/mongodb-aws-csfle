@@ -1,0 +1,15 @@
+@import "../common/common";
+
+.galleryframe {
+    border-width: 0px;
+    border-style: solid;
+    border-color: $color-tan;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+    line-height: 22px;
+    padding: 0px 0px 10px;
+    position: relative;
+    background-color: $color-shark;
+    float: left;
+}

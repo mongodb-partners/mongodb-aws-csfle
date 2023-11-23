@@ -1,0 +1,22 @@
+@import "../common/common";
+
+.photoframe {
+    border-width: 0px;
+    border-style: solid;
+    border-color: $color-tan;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+    line-height: 22px;
+    padding: 0px 0px 10px;
+    position: relative;
+    background-color: $color-shark;
+    float: left;
+}
+
+.photoshare {
+    padding: 5px 0px;
+    text-align: center;
+    margin: 0 auto;
+    letter-spacing: 2px;
+}

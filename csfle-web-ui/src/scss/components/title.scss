@@ -1,0 +1,20 @@
+@import "../common/common";
+
+.titleholder {
+    width: 100%;
+    text-align: center;
+}
+
+.title {
+    color: $color-white;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 2rem;
+    text-align: center;
+    letter-spacing: 2px;
+    img {
+        width: 22px;
+        height: 22px;
+    }
+}

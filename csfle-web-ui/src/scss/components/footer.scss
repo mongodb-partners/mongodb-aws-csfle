@@ -1,0 +1,54 @@
+@import "../common/common";
+
+.footerbar {
+    background-color: $color-abbey;
+    width: 100%;
+    float: left;
+    margin-top: 5px;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    color: $color-white;
+    padding: 5px 0px;
+    clear: both;
+    vertical-align: middle;
+    background-color: $color-abbey;
+    line-height: 2.2rem;
+    font-size: 0.9rem;
+    float: left;
+    a {
+        color: $color-white;
+        text-decoration: none;
+    }
+}
+
+.footermenu, .knowledge {
+    width: 33.33333%;
+    float: left;
+}
+
+.socialmedia, .copyright {
+    width: 100%;
+    float: left;
+    text-align: center;
+    a svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.socialmediapiccontrol {
+    width: 20px;
+    height: 20px;
+    display: inline;
+    margin-top: 3px;
+}
+
+@media screen and (max-width: 768px) {
+    .footermenu, .knowledge {
+        width: 0%;
+        display: none;
+    }
+}

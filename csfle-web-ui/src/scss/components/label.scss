@@ -1,0 +1,22 @@
+@import "../common/common";
+
+.lbl {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  background-color: $color-transparent;
+  >label {
+    width: 100%;
+    display: block;
+    text-align: left;
+    float: left;
+    color: $color-black;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: normal;
+  }
+}
+
+.required {
+  color: $color-red;
+}

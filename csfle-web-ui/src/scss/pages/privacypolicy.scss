@@ -1,0 +1,50 @@
+@import "../common/common";
+
+.privacypolicyframe {
+    border-width: 0px;
+    border-style: solid;
+    border-color: $color-tan;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+    line-height: 22px;
+    position: relative;
+    background-color: $color-shark;
+    float: left;
+}
+
+.policycontainer {
+    background-color: $color-white-dark;
+    width: calc(100% - 40px);
+    height: auto;
+    color: $color-black;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.67rem;
+    padding: 0px 10px;
+    margin: 0px 10px 10px;
+    float: left;
+}
+
+.policy {
+    width: 100%;
+    text-align: justify;
+    float: left;
+}
+
+.policyheader {
+    font-weight: bold;
+    color: $color-crete;
+}
+
+.policydescription {
+    font-weight: normal;
+    color: $color-abbey;
+}
+
+@media screen and (max-width: 400px) {
+    .policy {
+        text-align: left;
+    }
+}

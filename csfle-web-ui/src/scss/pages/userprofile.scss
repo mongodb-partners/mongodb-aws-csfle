@@ -1,0 +1,50 @@
+@import "../common/common";
+
+.userprofileframe {
+    border-width: 0px;
+    border-style: solid;
+    border-color: $color-tan;
+    width: 60%;
+    height: auto;
+    margin: 10px 20% 10px;
+    line-height: 1.67rem;
+    position: relative;
+    background-color: $color-shark;
+    float: left;
+    padding-bottom: 10px;
+}
+
+.userprofilecontainer {
+    width: calc(100% - 30px);
+    height: auto;
+    line-height: 1.67rem;
+    margin: 0px 10px;
+    padding: 5px 5px 0px;
+    background-color: $color-white-dark;
+    float: left;
+}
+
+.userprofile {
+    font-family: Open Sans, Sans-Serif;
+    font-size: 1rem;
+    font-weight: normal;
+    color: $color-abbey;
+    line-height: 1.67rem;
+    text-align: justify-all;
+    padding: 5px 0px;
+    margin: 0;
+}
+
+@media screen and (min-width: 401px) and (max-width: 600px) {
+    .userprofileframe {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .userprofileframe {
+        width: 100%;
+        margin-left: 0%;
+    }
+}

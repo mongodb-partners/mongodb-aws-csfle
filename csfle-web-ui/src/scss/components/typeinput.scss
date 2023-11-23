@@ -1,0 +1,244 @@
+@import "../common/common";
+
+.type {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    background-color: $color-transparent;
+    margin: 0 auto;
+    padding: 0px;
+    label {
+        width: 100%;
+        display: block;
+        text-align: left;
+        float: left;
+        color: $color-shark;
+        font-family: Open Sans, Sans-Serif;
+        font-size: 1rem;
+        line-height: 1.67rem;
+        font-weight: normal;
+    }
+    input {
+        width: calc(100% - 10px);
+        line-height: 1.67rem;
+        display: block;
+        text-align: left;
+        float: left;
+        border: 0px solid $color-tan;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+        -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+        color: $color-abbey;
+        font-family: Open Sans, Sans-Serif;
+        font-size: 1rem;
+        font-weight: normal;
+        padding: 5px;
+    }
+}
+
+input[type="text"] {
+    &:required {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-required.png");
+            background-repeat: no-repeat;
+        }
+        &:valid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-valid.png");
+            background-repeat: no-repeat;
+        }
+    }
+    &:focus {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-invalid.png");
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input {
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+input[type="number"] {
+    /* Firefox */
+    -moz-appearance: textfield;
+    &:required {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-required.png");
+            background-repeat: no-repeat;
+        }
+        &:valid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-valid.png");
+            background-repeat: no-repeat;
+        }
+    }
+    &:focus {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-invalid.png");
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+input[type="password"] {
+    &:required {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-required.png");
+            background-repeat: no-repeat;
+        }
+        &:valid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-valid.png");
+            background-repeat: no-repeat;
+        }
+    }
+    &:focus {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-invalid.png");
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+input[type="email"] {
+    &:required {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-required.png");
+            background-repeat: no-repeat;
+        }
+        &:valid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-valid.png");
+            background-repeat: no-repeat;
+        }
+    }
+    &:focus {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-invalid.png");
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+input[type="tel"] {
+    &:required {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-required.png");
+            background-repeat: no-repeat;
+        }
+        &:valid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-valid.png");
+            background-repeat: no-repeat;
+        }
+    }
+    &:focus {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-invalid.png");
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+input[type="date"] {
+    &:required {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-required.png");
+            background-repeat: no-repeat;
+        }
+        &:valid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-valid.png");
+            background-repeat: no-repeat;
+        }
+    }
+    &:focus {
+        &:invalid {
+            background-position: right top;
+            outline: none;
+            background-image: url("/images/icon-invalid.png");
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+input {
+    &::-webkit-input-placeholder {
+        color: $color-nevada;
+        font-size: 1rem;
+    }
+    &:-moz-placeholder {
+        color: $color-nevada;
+        font-size: 1rem;
+    }
+    &::-moz-placeholder {
+        color: $color-nevada;
+        font-size: 1rem;
+    }
+    &:-ms-input-placeholder {
+        color: $color-nevada;
+        font-size: 1rem;
+    }
+    &::-webkit-inner-spin-button {
+        opacity: 1;
+    }
+}
+
+input[placeholder] {
+    color: $color-nevada;
+    font-size: 1rem;
+}
+
+.required {
+    color: $color-red;
+}
+
+.inputnote {
+    color: $color-abbey;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 0.9rem;
+    font-weight: normal;
+    line-height: 1.5rem;
+    left: 1%;
+}

@@ -1,0 +1,142 @@
+@import "../common/common";
+
+/* Position and sizing of burger button */
+/* Color/shape of burger icon bars */
+/* Color/shape of burger icon bars on hover*/
+/* Position and sizing of clickable cross button */
+/* Color/shape of close button cross */
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+/* General sidebar styles */
+/* Morph shape necessary with bubble or elastic */
+/* Wrapper for item list */
+/* Individual item */
+/* Styling of overlay */
+.mobilemenuwrapper {
+  display: none;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .mobilemenuwrapper {
+      display: block;
+  }
+}
+
+.burger-button {
+  position: absolute;
+  width: 24px;
+  height: 20px;
+  left: initial;
+  right: 1.1rem;
+  top: 24px;
+}
+
+.burger-bars {
+  background: $color-white;
+  &:hover {
+    background: $color-key-lime-pie;
+  }
+}
+
+.cross-button {
+  height: 30px;
+  width: 30px;
+}
+
+.cross {
+  background: $color-blackboard;
+  width: 5px;
+  height: 36px;
+}
+
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+.menu {
+  background-color: $color-white-dark;
+  padding: 2.5rem 0rem 0rem;
+  font-size: 1rem;
+}
+
+.morph-shape {
+  fill: #373a47;
+}
+
+.item-list {
+  color: rgb(86, 86, 86);
+  padding: 0rem;
+}
+
+.itemwrapper {
+  display: block;
+  outline: none;
+  border: none;
+  -moz-outline-style: none;
+}
+
+.item {
+  display: block;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 1.67rem;
+  padding: 1rem 1.8rem;
+  color: $color-grape;
+  &:hover {
+    background-color: $color-hot-cinnamon;
+    color: $color-white;
+    p {
+      span {
+        svg {
+          path {
+            fill: $color-white;
+          }
+          circle {
+            fill: $color-white;
+          }
+          fill: $color-white;
+        }
+      }
+    }
+  }
+}
+
+.menuitem {
+  margin: 0 auto;
+  padding: 0;
+  line-height: 1.8rem;
+}
+
+.menuitemicon {
+  margin: 0 auto;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.menuitemname {
+  margin: 0 auto;
+  padding: 0;
+  display: inline-block;
+  position: relative;
+  top: -6px;
+}
+
+.activeitem {
+  color: $color-grape;
+  background-color: $color-atlantis;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.navigationpiccontrol {
+  width: 20px;
+}

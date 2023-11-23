@@ -1,0 +1,155 @@
+@import "common/common";
+
+body {
+    font-family: Open Sans, Roboto, Calibri, Verdana, Arial, SunSans-Regular, Sans-Serif;
+    font-size: 1rem;
+    letter-spacing: 0px;
+    line-height: 1.67rem;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: $color-white-dark;
+
+    &::after {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    &::before {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+}
+
+div {
+    display: block;
+}
+
+@media (min-width: 240px) { body {font-size:0.9rem;} }
+@media (min-width:360px) { body {font-size:1rem;} }
+
+h2 {
+    font: bold 1.1rem/normal Open Sans, Lucida Calligraphy, Sans-Serif;
+    color: $color-crete;
+    padding: 10px 0px;
+    margin: 0 auto;
+    font-size-adjust: none;
+    font-stretch: normal;
+}
+
+h3 {
+    font: bold 1.1rem/normal Open Sans, Lucida Calligraphy, Sans-Serif;
+    margin: 5px;
+    color: $color-atlantis;
+    font-size-adjust: none;
+    font-stretch: normal;
+}
+
+h4 {
+    font: bold 1.1rem/normal Roboto, Calibri, Sans-Serif;
+    margin: 0px 0px 0px 8px;
+    padding: 0px;
+    color: rgb(0, 51, 102);
+    font-size-adjust: none;
+    font-stretch: normal;
+}
+
+h6 {
+    font: bold 0.85rem/normal Roboto, Calibri, Sans-Serif;
+    margin: 0px 0px 0px 8px;
+    padding: 0px;
+    color: rgb(0, 51, 102);
+    font-size-adjust: none;
+    font-stretch: normal;
+}
+
+.noborder {
+    border: 1px none rgb(221, 221, 221);
+}
+
+.nobreak {
+    margin-top: 0px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0px currentColor;
+    vertical-align: text-bottom;
+}
+
+.boxouter {
+    margin-top: 5px;
+    width: 100%;
+    clear: both;
+    float: left;
+}
+
+.cookieconsentcontainer {
+    background-color: $color-black;
+    border-top: 2px solid $color-tan;
+}
+.cookieconsentcontent {
+    color: $color-white-dark;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 0.8rem;
+    text-align: justify;
+    display: block;
+}
+
+.cookieconsentbutton {
+    background-color: $color-grape;
+    color: $color-white;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: 1px solid $color-blackboard;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.cookiedeclinebutton {
+    background-color: $color-ziggurat;
+    color: $color-blackboard;
+    font-family: Open Sans, Sans-Serif;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: 1px solid $color-grape;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 1081px) {
+    /* comes into effect for screens greater than or equal to 1080 pixels */
+    .container {
+        width: 1080px;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    /* comes into effect for screens less than or equal to 1080 pixels */
+    .container {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+.modal {
+    .boxouter{
+        .container {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .cookieconsentcontent {
+        text-align: left;
+    }
+}
