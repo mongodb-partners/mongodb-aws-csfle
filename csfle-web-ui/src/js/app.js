@@ -24,6 +24,8 @@ import Error from "./pages/error";
 import SaveCustomerCSFLE from "./pages/savecustomercsfle";
 import { MENU } from "./common/data";
 import '../scss/app.scss';
+import GetCustomerWithKey from "./pages/getcustomerwithkey";
+import GetCustomerNoKey from "./pages/getcustomernokey";
 
 ReactGA.initialize(GTAG_TRACKING_ID);
 const history = createBrowserHistory();
@@ -152,6 +154,14 @@ function App() {
                                     <AuthenticatedRoute
                                         path="/save-customer-csfle"
                                         render={(props) => <SaveCustomerCSFLE {...props} countryName={ddhomeCountry.country_name} countryCode={ddhomeCountry.country_code} />}
+                                    />
+                                    <AuthenticatedRoute
+                                        path="/get-customer-with-key"
+                                        render={(props) => <GetCustomerWithKey {...props} countryName={ddhomeCountry.country_name} countryCode={ddhomeCountry.country_code} />}
+                                    />
+                                    <AuthenticatedRoute
+                                        path="/get-customer-no-key"
+                                        render={(props) => <GetCustomerNoKey {...props} countryName={ddhomeCountry.country_name} countryCode={ddhomeCountry.country_code} />}
                                     />
                                     <Route
                                         render={(props) => <Error {...props} />}
