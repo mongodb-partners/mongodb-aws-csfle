@@ -31,7 +31,7 @@ const getKeyManagementProviderDetails = async () => {
 module.exports.getDataEncryptionKey = async (schema) => {
     let dataKey = "";
     await getKeyManagementProviderDetails();
-    const keyVaultClient = await mdb.get(false);
+    const keyVaultClient = await mdb.getClient(false);
     const keyVaultCollectionExist = await findKeyVaultCollectionExists(keyVaultClient);
     if(keyVaultCollectionExist) {
         const keyExists = await mdb.findDocument(keyVaultClient, keyVaultDatabase, keyVaultCollection, {"masterKey.provider": provider, "masterKey.region": masterKey.region, "masterKey.key": masterKey.key});

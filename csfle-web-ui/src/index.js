@@ -68,7 +68,7 @@ Amplify.configure({
                 region: AWS_CONFIG.apiGateway.REGION
             },
             {
-                name: 'saveCustomer',
+                name: 'saveCustomerCSFLE',
                 endpoint: AWS_CONFIG.apiGateway.URL + '/csfle',
                 region: AWS_CONFIG.apiGateway.REGION
             }

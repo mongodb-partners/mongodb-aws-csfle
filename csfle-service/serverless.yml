@@ -75,17 +75,36 @@ package:
 #    - exclude-me-dir/**
 
 functions:
-  saveCustomer:
-    handler: handler.saveCustomer
+  saveCustomerCSFLE:
+    handler: handler.saveCustomerCSFLE
     events:
       - http:
-          path: saveCustomer
+          path: saveCustomerCSFLE
           method: post
           cors: true
           authorizer: aws_iam
     environment:
       COLLECTION_NAME: "customer"
-
+  getCustomerWithKey:
+    handler: handler.getCustomerWithKey
+    events:
+      - http:
+          path: getCustomerWithKey
+          method: post
+          cors: true
+          authorizer: aws_iam
+    environment:
+      COLLECTION_NAME: "customer"
+  getCustomerNoKey:
+    handler: handler.getCustomerNoKey
+    events:
+      - http:
+          path: getCustomerNoKey
+          method: post
+          cors: true
+          authorizer: aws_iam
+    environment:
+      COLLECTION_NAME: "customer"
 
 # you can add CloudFormation resource templates here
 resources:

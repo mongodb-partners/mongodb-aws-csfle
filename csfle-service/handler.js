@@ -3,9 +3,8 @@ const encrypt = require('./encrypt');
 const database = process.env['DB_NAME']
 const collection = process.env['COLLECTION_NAME'];
 const mdb = require('./mdb');
-const { Binary } = require("mongodb");
 
-module.exports.saveCustomer = async (event) => {
+module.exports.saveCustomerCSFLE = async (event) => {
     const data = JSON.parse(event.body);
     const userId = event.requestContext.identity.cognitoIdentityId;
 
@@ -13,7 +12,7 @@ module.exports.saveCustomer = async (event) => {
     const schema = getCustomerSchema(dataEncryptionKey);
     const encryptionOption = await encrypt.getEncryptionOption(schema);
 
-    const client = await mdb.get(true, encryptionOption);
+    const client = await mdb.getClient(true, encryptionOption);
 
     //console.log('keys', keys);
     let sequenceDoc = await mdb.findSequence(client, database, "sequence", {"key": "customer_seq"});
@@ -42,6 +41,48 @@ module.exports.saveCustomer = async (event) => {
     }
 
     const response = (!userId || userId === undefined) ? {} : await mdb.insertDocument(client, database, collection,  customer);
+
+    return {
+        statusCode: 200,
+        body: JSON.stringify(response),
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+        }
+    };
+}
+
+module.exports.getCustomerWithKey = async (event) => {
+    const data = JSON.parse(event.body);
+    const userId = event.requestContext.identity.cognitoIdentityId;
+    const email = data.email ? data.email : '';
+
+    const dataEncryptionKey = await encrypt.getDataEncryptionKey("customer");
+    const schema = getCustomerSchema(dataEncryptionKey);
+    const encryptionOption = await encrypt.getEncryptionOption(schema);
+
+    const client = await mdb.getClient(true, encryptionOption);
+
+    const response = (!userId || userId === undefined) ? {} : await mdb.findDocument(client, database, collection, { "identityId": userId, "email": email });
+
+    return {
+        statusCode: 200,
+        body: JSON.stringify(response),
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+        }
+    };
+}
+
+module.exports.getCustomerNoKey = async (event) => {
+    const data = JSON.parse(event.body);
+    const userId = event.requestContext.identity.cognitoIdentityId;
+    const email = data.email ? data.email : '';
+
+    const client = await mdb.getClient(false);
+
+    const response = (!userId || userId === undefined) ? {} : await mdb.findDocument(client, database, collection, { "identityId": userId, "email": email });
 
     return {
         statusCode: 200,

@@ -4,7 +4,7 @@ const secret = require("./secret");
 
 let atlas_connection_uri;
 
-module.exports.get = async (secure, encryptionOption) => {
+module.exports.getClient = async (secure, encryptionOption) => {
     //Getting Secret Response for Key
     const key = process.env['ENVIRONMENT'] ? process.env['ENVIRONMENT'].toUpperCase() + '_' + 'MONGODB_ATLAS_CLUSTER_URI' : 'MONGODB_ATLAS_CLUSTER_URI';
     let response = JSON.parse(await secret(key));
