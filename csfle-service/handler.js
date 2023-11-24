@@ -59,7 +59,7 @@ module.exports.getCustomerWithKey = async (event) => {
 
     const client = await mdb.getClient(true, encryptionOption);
 
-    const response = (!userId || userId === undefined) ? {} : await mdb.findDocument(client, database, collection, { "identityId": userId, "email": email });
+    const response = (!userId || userId === undefined) ? {} : await mdb.findDocument(client, database, collection, email !== '' ? { "identityId": userId, "email": email } : { "identityId": userId });
 
     return {
         statusCode: 200,
@@ -78,7 +78,7 @@ module.exports.getCustomerNoKey = async (event) => {
 
     const client = await mdb.getClient(false);
 
-    const response = (!userId || userId === undefined) ? {} : await mdb.findDocument(client, database, collection, { "identityId": userId, "email": email });
+    const response = (!userId || userId === undefined) ? {} : await mdb.findDocument(client, database, collection, email !== '' ? { "identityId": userId, "email": email } : { "identityId": userId });
 
     return {
         statusCode: 200,
