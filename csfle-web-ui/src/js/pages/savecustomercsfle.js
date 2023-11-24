@@ -33,8 +33,8 @@ function SaveCustomerCSFLE() {
                 countryCode: ddhomeCountry.country_code,
                 hostName: window.location.hostname,
                 ipAddress: ddhomeCountry.ip_address,
-                page: 'user profile',
-                message: 'User Profile Page Accessed by ' + getSessionCookie("credential").identityId
+                page: 'Save Customer CSFLE',
+                message: 'Save Customer CSFLE Page Accessed by ' + getSessionCookie("credential").identityId
             }
         );
     }, []);

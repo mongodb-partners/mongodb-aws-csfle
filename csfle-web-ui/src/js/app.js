@@ -13,6 +13,8 @@ import {onError} from "./common/error";
 import ScrollToTop from "./common/scroll";
 import ResponsiveNavigation from "./components/responsivenavigation";
 import Header from './components/header';
+import Navigation from './components/navigation'
+import Footer from './components/footer'
 import Home from './pages/home';
 import SignUp from "./pages/signup";
 import SignIn from "./pages/signin";
@@ -21,9 +23,9 @@ import UserProfile from "./pages/userprofile";
 import ChangePassword from "./pages/changepassword";
 import Loader from "./components/loader";
 import Error from "./pages/error";
-import SaveCustomerCSFLE from "./pages/savecustomercsfle";
 import { MENU } from "./common/data";
 import '../scss/app.scss';
+import SaveCustomerCSFLE from "./pages/savecustomercsfle";
 import GetCustomerWithKey from "./pages/getcustomerwithkey";
 import GetCustomerNoKey from "./pages/getcustomernokey";
 
@@ -126,6 +128,7 @@ function App() {
                             <>
                                 <ResponsiveNavigation menus={menuList} />
                                 <Header country={ddhomeCountry} menus={menuList} />
+                                <Navigation menus={menuList} />
                                 <Switch>
                                     <Route
                                         exact path="/"
@@ -167,6 +170,7 @@ function App() {
                                         render={(props) => <Error {...props} />}
                                     />
                                 </Switch>
+                                <Footer menus={menuList} />
                             </>
                         )}
                     </div>

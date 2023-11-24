@@ -66,18 +66,14 @@ function Application(props) {
             postCode: fields.postCode,
             countryCode: fields.countryCode,
             phone: fields.phone,
-            idName: props.docs.idName,
-            idLocation: props.docs.idLocation,
-            photoName: props.docs.photoName,
-            photoLocation: props.docs.photoLocation,
             mailingFlag: fields.mailingFlag
         }
         console.log(JSON.stringify(application));
 
         try {
             await API.post(
-                "saveCustomer",
-                "/saveCustomer",
+                "saveCustomerCSFLE",
+                "/saveCustomerCSFLE",
                 {
                     response: true,
                     headers: {

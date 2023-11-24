@@ -6,11 +6,7 @@ import CountryServEase from "../components/countryservease";
 import Loader from "../components/loader";
 import {postAuditEntry} from "../common/common";
 import MetaTag from "../components/metatag";
-import CollapseText from "../components/collapsetext";
-import Promotion from "../components/promotion";
 import StayConnected from "../components/stayconnected";
-import BlogSection from "../components/blogsection";
-import SimpleSlider from "../components/slider";
 import {PROMOTION, SERVICE} from "../common/data";
 import '../../scss/pages/home.scss';
 
@@ -38,16 +34,6 @@ function Home(props) {
             }
         );
     }, []);
-
-    const defaultMessage =
-        <div className="messagecontainer">
-            <div className="defaultmessage">
-                <p>{message}</p>
-                <p>{message2}<NavLink to="/contact-us">Contact Us</NavLink>.</p>
-                <p>{message3}</p>
-            </div>
-            <StayConnected />
-        </div>
 
     return (
         <>
