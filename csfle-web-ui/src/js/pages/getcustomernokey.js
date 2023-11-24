@@ -9,6 +9,7 @@ import Loader from "../components/loader";
 import {postAuditEntry} from "../common/common";
 import '../../scss/pages/userprofile.scss';
 import Application from "../components/application";
+import View from "../components/view";
 
 const pagetitle = 'Get Customer No Key';
 const source = 'get-customer-no-key';
@@ -18,6 +19,13 @@ function GetCustomerNoKey() {
     const [data, loading] = usePost(
         "findUserProfile",
         "/findUserProfile",
+        {
+            identityId: getSessionCookie("credential").identityId
+        }
+    );
+    const [customer, customerLoading] = usePost(
+        "getCustomerNoKey",
+        "/getCustomerNoKey",
         {
             identityId: getSessionCookie("credential").identityId
         }
@@ -46,10 +54,10 @@ function GetCustomerNoKey() {
                 <div className="container">
                     <div className="userprofileframe">
                         <Title message={pagetitle} />
-                        {loading ? (
+                        {loading || customerLoading ? (
                             <Loader loading={loading} />
                         ) : (
-                            <Application data={data} source={source} docs={location.state}/>
+                            <View data={data} customer={customer} source={source} docs={location.state}/>
                         )}
                     </div>
                 </div>

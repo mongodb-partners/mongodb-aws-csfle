@@ -256,6 +256,16 @@ Amplify.configure({
                 name: 'saveCustomerCSFLE',
                 endpoint: AWS_CONFIG.apiGateway.URL + '/csfle',
                 region: AWS_CONFIG.apiGateway.REGION
+            },
+            {
+                name: 'getCustomerWithKey',
+                endpoint: AWS_CONFIG.apiGateway.URL + '/csfle',
+                region: AWS_CONFIG.apiGateway.REGION
+            },
+            {
+                name: 'getCustomerNoKey',
+                endpoint: AWS_CONFIG.apiGateway.URL + '/csfle',
+                region: AWS_CONFIG.apiGateway.REGION
             }
         ]
     }
