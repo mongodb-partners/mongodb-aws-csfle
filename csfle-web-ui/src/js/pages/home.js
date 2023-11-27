@@ -6,7 +6,6 @@ import CountryServEase from "../components/countryservease";
 import Loader from "../components/loader";
 import {postAuditEntry} from "../common/common";
 import MetaTag from "../components/metatag";
-import StayConnected from "../components/stayconnected";
 import {PROMOTION, SERVICE} from "../common/data";
 import '../../scss/pages/home.scss';
 
@@ -16,11 +15,6 @@ function Home(props) {
     const index = useIndex(window.location.hostname, window.location.protocol);
     const ddhomeCountry = getSessionCookie('ddhomeCountry');
     const [countryServEasesData, countryServEasesLoading] = [SERVICE, false];
-    const [promotionData, promotionLoading] = [PROMOTION, false];
-
-    const message = 'We are currently offering select services for customers in the United Kingdom. Over the coming months we aim to include more services and countries. ';
-    const message2 = 'If you have any particular service requirement, that is not currently covered, please ';
-    const message3 = 'We\'d be delighted to keep you informed about our roadmap and plan of launching new services. Please stay in touch with us.';
 
     useEffect(() => {
         postAuditEntry(

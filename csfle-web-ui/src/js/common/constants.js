@@ -1,4 +1,3 @@
-export const FUNNY_QUOTE_URL = process.env.REACT_APP_FUNNY_QUOTE_URL;
 export const GEOLOCATION_URL = process.env.REACT_APP_GEOLOCATION_URL;
 export const GTAG_TRACKING_ID = process.env.REACT_APP_GTAG_TRACKING_ID;
 export const MEDIA_HOST = process.env.REACT_APP_MEDIA_HOST;
