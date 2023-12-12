@@ -51,16 +51,6 @@ provider:
         - kms:GenerateDataKey*
         - kms:DescribeKey
       Resource: "*"
-    - Effect: "Allow"
-      Action:
-        - dynamodb:BatchGetItem
-        - dynamodb:GetItem
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:BatchWriteItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-      Resource: arn:aws:dynamodb:*:*:table/${self:provider.stage}.${env:APP_NAME}.${self:service}.*
 
 #    variable1: value1
 
@@ -121,10 +111,6 @@ custom:
     include:
       - APP_NAME
       - SERVICE_NAME
-      - DB_HOST
-      - DB_PORT
-      - DB_USER
-      - DB_NAME
       - CRYPT_SHARED_LIB_PATH
   stage: ${opt:stage, self:provider.stage}
   domains:
