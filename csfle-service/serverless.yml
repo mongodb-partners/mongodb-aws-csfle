@@ -26,7 +26,7 @@ provider:
   name: aws
   runtime: ${env:RUNTIME}
   endpointType: ${env:ENDPOINT_TYPE}
-  profile: ${env:APP_NAME}
+  profile: ${env:PROFILE}
 
 # you can overwrite defaults here
   stage: ${opt:stage, "dev"}
@@ -109,7 +109,6 @@ plugins:
 custom:
   dotenv:
     include:
-      - APP_NAME
       - SERVICE_NAME
       - DB_NAME
       - CRYPT_SHARED_LIB_PATH
