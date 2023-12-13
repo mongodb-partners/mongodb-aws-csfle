@@ -14,11 +14,8 @@ module.exports.saveCustomerCSFLE = async (event) => {
 
     const client = await mdb.getClient(true, encryptionOption);
 
-    //console.log('keys', keys);
-    let sequenceDoc = await mdb.findSequence(client, database, "sequence", {"key": "customer_seq"});
 
     const customer = {
-        number: sequenceDoc.sequence,
         identityId: data.identityId,
         firstName: data.firstName ? data.firstName : '',
         lastName: data.lastName ? data.lastName : '',
