@@ -111,6 +111,7 @@ custom:
     include:
       - APP_NAME
       - SERVICE_NAME
+      - DB_NAME
       - CRYPT_SHARED_LIB_PATH
   stage: ${opt:stage, self:provider.stage}
   domains:
