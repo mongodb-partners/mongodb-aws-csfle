@@ -1,14 +1,11 @@
-import React, {useEffect} from 'react';
-import {useHistory, useLocation} from "react-router";
+import React from 'react';
+import {useLocation} from "react-router";
 import {useIndex, usePost} from "../common/hook";
 import {getSessionCookie} from "../common/session";
 import Title from "../components/title";
 import MetaTag from "../components/metatag";
-import Profile from "../components/profile";
 import Loader from "../components/loader";
-//import {postAuditEntry} from "../common/common";
 import '../../scss/pages/userprofile.scss';
-import Application from "../components/application";
 import View from "../components/view";
 
 const pagetitle = 'Get Customer No Key';
@@ -30,22 +27,7 @@ function GetCustomerNoKey() {
             identityId: getSessionCookie("credential").identityId
         }
     );
-    //const ddhomeCountry = getSessionCookie('ddhomeCountry');
     const location = useLocation();
-    const history = useHistory();
-
-    /*useEffect(() => {
-        postAuditEntry(
-            {
-                date: new Date(),
-                countryCode: ddhomeCountry.country_code,
-                hostName: window.location.hostname,
-                ipAddress: ddhomeCountry.ip_address,
-                page: 'user profile',
-                message: 'User Profile Page Accessed by ' + getSessionCookie("credential").identityId
-            }
-        );
-    }, []);*/
 
     return (
         <>

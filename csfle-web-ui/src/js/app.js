@@ -25,7 +25,7 @@ import Loader from "./components/loader";
 import Error from "./pages/error";
 import { MENU } from "./common/data";
 import '../scss/app.scss';
-import SaveCustomerCSFLE from "./pages/savecustomercsfle";
+import EditCustomerCSFLE from "./pages/editcustomercsfle";
 import GetCustomerWithKey from "./pages/getcustomerwithkey";
 import GetCustomerNoKey from "./pages/getcustomernokey";
 
@@ -155,8 +155,8 @@ function App() {
                                         render={(props) => <ChangePassword {...props} />}
                                     />
                                     <AuthenticatedRoute
-                                        path="/save-customer-csfle"
-                                        render={(props) => <SaveCustomerCSFLE {...props} countryName={ddhomeCountry.country_name} countryCode={ddhomeCountry.country_code} />}
+                                        path="/edit-customer-csfle"
+                                        render={(props) => <EditCustomerCSFLE {...props} countryName={ddhomeCountry.country_name} countryCode={ddhomeCountry.country_code} />}
                                     />
                                     <AuthenticatedRoute
                                         path="/get-customer-with-key"

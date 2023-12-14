@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Auth } from "aws-amplify";
 import {useHistory} from "react-router-dom";
 import {useIndex, useFormFields} from "../common/hook";
-//import {postAuditEntry} from "../common/common";
-import {getSessionCookie} from "../common/session";
 import { onError } from "../common/error";
 import TypeInput from "../components/typeInput";
 import MetaTag from "../components/metatag";
@@ -23,20 +21,6 @@ function ChangePassword(props) {
         confirmPassword: '',
     });
     const [isChanging, setIsChanging] = useState(false);
-    //const ddhomeCountry = getSessionCookie('ddhomeCountry');
-
-    /*useEffect(() => {
-        postAuditEntry(
-            {
-                date: new Date(),
-                countryCode: ddhomeCountry.country_code,
-                hostName: window.location.hostname,
-                ipAddress: ddhomeCountry.ip_address,
-                page: 'change password',
-                message: 'Change Password Page Accessed by ' + getSessionCookie("credential").identityId
-            }
-        );
-    }, []);*/
 
     const handleChangeClick = async (event) => {
         event.preventDefault();
@@ -49,7 +33,7 @@ function ChangePassword(props) {
                 fields.password
             );
             alert("Password has been successfully changed");
-            history.push("/my-profile");
+            history.push("/edit-customer-csfle");
             setIsChanging(true);
         } catch (error) {
             onError(error);

@@ -9,8 +9,8 @@ function CSFLEService(props) {
     let ddhomeCountry = getSessionCookie('ddhomeCountry');
     if(Object.keys(ddhomeCountry).length === 0 && ddhomeCountry.constructor === Object) {
         let countryMatch = false;
-        for(let i in props.countryServEasesData) {
-            if(props.countryServEasesData[i].countryCode === props.geolocationData.country_code) {
+        for(let i in props.csfleServiceData) {
+            if(props.csfleServiceData[i].countryCode === props.geolocationData.country_code) {
                 countryMatch = true;
                 break;
             }
@@ -32,8 +32,8 @@ function CSFLEService(props) {
     useEffect(() => {
         props.ddhomeCountryCallBack(country);
         let countryCodesDetails = [];
-        for(let i in props.countryServEasesData) {
-            countryCodesDetails.push(props.countryServEasesData[i].countryCode);
+        for(let i in props.csfleServiceData) {
+            countryCodesDetails.push(props.csfleServiceData[i].countryCode);
         }
 
         setCountryCodes([...countryCodesDetails]);
@@ -60,7 +60,7 @@ function CSFLEService(props) {
     return (
         <div className="csfleserviceframe">
             <ul className="csfleservicesgroup">
-                {props.countryServEasesData.map((item, index) => (
+                {props.csfleServiceData.map((item, index) => (
                     <li key={index} className="csfleservice">
                         <Title message={'Top CSFLE Services'} index={index} />
                         <ul className="servicegroup">
@@ -78,7 +78,7 @@ function CSFLEService(props) {
 function ServEases(props) {
     return (
         <ul className="servicegroup">
-            {props.countryServEases.map((item, index) => (
+            {props.csfleService.map((item, index) => (
                 <Service key={index} service={item} />
             ))}
         </ul>

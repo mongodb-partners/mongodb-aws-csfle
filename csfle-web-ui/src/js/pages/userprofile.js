@@ -1,11 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useIndex, usePost} from "../common/hook";
 import {getSessionCookie} from "../common/session";
 import Title from "../components/title";
 import MetaTag from "../components/metatag";
 import Profile from "../components/profile";
 import Loader from "../components/loader";
-//import {postAuditEntry} from "../common/common";
 import '../../scss/pages/userprofile.scss';
 
 const pagetitle = 'My Profile';
@@ -20,20 +19,6 @@ function UserProfile() {
             identityId: getSessionCookie("credential").identityId
         }
     );
-    //const ddhomeCountry = getSessionCookie('ddhomeCountry');
-
-    /*useEffect(() => {
-        postAuditEntry(
-            {
-                date: new Date(),
-                countryCode: ddhomeCountry.country_code,
-                hostName: window.location.hostname,
-                ipAddress: ddhomeCountry.ip_address,
-                page: 'user profile',
-                message: 'User Profile Page Accessed by ' + getSessionCookie("credential").identityId
-            }
-        );
-    }, []);*/
 
     return (
         <>

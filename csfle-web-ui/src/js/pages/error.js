@@ -1,33 +1,17 @@
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useIndex} from '../common/hook';
-//import {postAuditEntry} from "../common/common";
 import Title from "../components/title";
 import MetaTag from "../components/metatag";
 import {NavLink} from "react-router-dom";
-import {getSessionCookie} from "../common/session";
 import '../../scss/pages/error.scss';
 
 const pagetitle = 'Taleofddh Page Not Found';
 const source = 'error';
 
-function Error(props) {
+function Error() {
     const index = useIndex(window.location.hostname, window.location.protocol);
-    //const ddhomeCountry = getSessionCookie('ddhomeCountry');
-
-    /*useEffect(() => {
-        postAuditEntry(
-            {
-                date: new Date(),
-                hostName: window.location.hostname,
-                countryCode: ddhomeCountry.country_code,
-                ipAddress: ddhomeCountry.ip_address,
-                page: 'error',
-                message: 'Error Page Accessed'
-            }
-        );
-    }, []);*/
 
     return (
         <>

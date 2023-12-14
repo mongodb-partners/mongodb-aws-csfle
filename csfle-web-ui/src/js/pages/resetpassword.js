@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Auth } from "aws-amplify";
 import { NavLink } from "react-router-dom";
 import {useIndex, useFormFields} from "../common/hook";
-//import {postAuditEntry} from "../common/common";
 import { onError } from "../common/error";
 import TypeInput from "../components/typeInput";
 import MetaTag from "../components/metatag";
 import Title from "../components/title";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import LoaderButton from "../components/loaderbutton";
-import {getSessionCookie} from "../common/session";
 import "../../scss/pages/resetpassword.scss";
 
 const pagetitle = 'Reset Password';
@@ -27,20 +25,6 @@ function ResetPassword(props) {
     const [confirmed, setConfirmed] = useState(false);
     const [isConfirming, setIsConfirming] = useState(false);
     const [isSendingCode, setIsSendingCode] = useState(false);
-    //const ddhomeCountry = getSessionCookie('ddhomeCountry');
-
-    /*useEffect(() => {
-        postAuditEntry(
-            {
-                date: new Date(),
-                hostName: window.location.hostname,
-                countryCode: ddhomeCountry.country_code,
-                ipAddress: ddhomeCountry.ip_address,
-                page: 'reset password',
-                message: 'Reset Password Page Accessed'
-            }
-        );
-    }, []);*/
 
     const handleSendCodeClick = async (event) => {
         event.preventDefault();

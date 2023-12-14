@@ -63,7 +63,7 @@ function Header(props) {
     });*/
 /*    let menusIcon =
         isAuthenticated ? (
-            <NavLink to="/my-profile">
+            <NavLink to="/edit-customer-csfle">
                 <p className="headericon">
                     <Icon name="user" fill = "#FFFFFF" />
                 </p>
@@ -102,7 +102,7 @@ function Header(props) {
                 <label className="signintext" onClick={handleLogout}>
                         Sign-out
                 </label>
-                <NavLink to="/my-profile">
+                <NavLink to="/edit-customer-csfle">
                     <p className="headericon">
                         <Icon name="user" fill = "#FFFFFF" />
                     </p>
@@ -143,7 +143,7 @@ function Header(props) {
                                 <label className="signintext" onClick={handleLogout}>
                                     Sign-out
                                 </label>
-                                <NavLink to="/my-profile">
+                                <NavLink to="/edit-customer-csfle">
                                     <p className="headericon">
                                         <Icon name="user" fill = "#FFFFFF" />
                                     </p>
@@ -159,7 +159,7 @@ function Header(props) {
                     </div>
                     <div className="signinicon">
                         {isAuthenticated ? (
-                            <NavLink to="/my-profile">
+                            <NavLink to="/edit-customer-csfle">
                                 <p className="headericon">
                                     <Icon name="user" fill = "#FFFFFF" />
                                 </p>
