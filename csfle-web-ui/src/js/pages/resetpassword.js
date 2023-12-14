@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Auth } from "aws-amplify";
 import { NavLink } from "react-router-dom";
 import {useIndex, useFormFields} from "../common/hook";
-import {postAuditEntry} from "../common/common";
+//import {postAuditEntry} from "../common/common";
 import { onError } from "../common/error";
 import TypeInput from "../components/typeInput";
 import MetaTag from "../components/metatag";
@@ -27,9 +27,9 @@ function ResetPassword(props) {
     const [confirmed, setConfirmed] = useState(false);
     const [isConfirming, setIsConfirming] = useState(false);
     const [isSendingCode, setIsSendingCode] = useState(false);
-    const ddhomeCountry = getSessionCookie('ddhomeCountry');
+    //const ddhomeCountry = getSessionCookie('ddhomeCountry');
 
-    useEffect(() => {
+    /*useEffect(() => {
         postAuditEntry(
             {
                 date: new Date(),
@@ -40,7 +40,7 @@ function ResetPassword(props) {
                 message: 'Reset Password Page Accessed'
             }
         );
-    }, [])
+    }, []);*/
 
     const handleSendCodeClick = async (event) => {
         event.preventDefault();

@@ -5,7 +5,7 @@ import Icon from "../common/icon";
 import countries  from '../common/countries';
 import Title from './title';
 
-function CountryServEase(props) {
+function CSFLEService(props) {
     let ddhomeCountry = getSessionCookie('ddhomeCountry');
     if(Object.keys(ddhomeCountry).length === 0 && ddhomeCountry.constructor === Object) {
         let countryMatch = false;
@@ -58,14 +58,14 @@ function CountryServEase(props) {
     }
 
     return (
-        <div className="countryserveaseframe">
-            <ul className="countryserveasesgroup">
+        <div className="csfleserviceframe">
+            <ul className="csfleservicesgroup">
                 {props.countryServEasesData.map((item, index) => (
-                    <li key={index} className="countryservease">
+                    <li key={index} className="csfleservice">
                         <Title message={'Top CSFLE Services'} index={index} />
-                        <ul className="serveasegroup">
-                            {item.servEaseList.map((item1, index1) => (
-                                <ServEase key={index1} servEase={item1} countryCode={item.countryCode} handleClick={onCountryServEaseClick}/>
+                        <ul className="servicegroup">
+                            {item.serviceList.map((item1, index1) => (
+                                <Service key={index1} service={item1} countryCode={item.countryCode} handleClick={onCountryServEaseClick}/>
                             ))}
                         </ul>
                     </li>
@@ -77,23 +77,23 @@ function CountryServEase(props) {
 
 function ServEases(props) {
     return (
-        <ul className="serveasegroup">
+        <ul className="servicegroup">
             {props.countryServEases.map((item, index) => (
-                <ServEase key={index} servEase={item} />
+                <Service key={index} service={item} />
             ))}
         </ul>
     )
 }
 
-function ServEase(props) {
+function Service(props) {
     let activeClass;
     let messageVisible;
-    if(props && props.servEase.available) {
-        activeClass = 'serveaseactive';
-        messageVisible = 'serveasemessagehidden'
+    if(props && props.service.available) {
+        activeClass = 'serviceactive';
+        messageVisible = 'servicemessagehidden'
     } else {
-        activeClass = 'serveaseactive';
-        messageVisible = 'serveasemessagehidden'
+        activeClass = 'serviceactive';
+        messageVisible = 'servicemessagehidden'
     }
 
     const handleClick = (countryCode, link, model, available) => {
@@ -103,13 +103,13 @@ function ServEase(props) {
     return (
         <>
             {props ? (
-                <li className={'serveasecontainer ' + activeClass} onClick={(e) => handleClick(props.countryCode, props.servEase.link, props.servEase.model, props.servEase.available, e)}>
+                <li className={'servicecontainer ' + activeClass} onClick={(e) => handleClick(props.countryCode, props.service.link, props.service.model, props.service.available, e)}>
                     <div style={{display: 'block', position: 'relative'}}>
-                        <p className="serveaseicon">
-                            <Icon name={props.servEase.icon} fill="rgb(255, 255, 255)" />
+                        <p className="serviceicon">
+                            <Icon name={props.service.icon} fill="rgb(255, 255, 255)" />
                         </p>
-                        <p className="serveaseheader">{props.servEase.name}</p>
-                        <p className={'serveasemessage ' + messageVisible}><label style={{position: 'relative', bottom: '8.5rem'}}><span>Coming Soon</span></label></p>
+                        <p className="serviceheader">{props.service.name}</p>
+                        <p className={'servicemessage ' + messageVisible}><label style={{position: 'relative', bottom: '8.5rem'}}><span>Coming Soon</span></label></p>
                     </div>
                 </li>
             ) : (
@@ -120,4 +120,4 @@ function ServEase(props) {
     )
 }
 
-export default withRouter(CountryServEase);
+export default withRouter(CSFLEService);

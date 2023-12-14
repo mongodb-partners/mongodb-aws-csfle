@@ -51,7 +51,7 @@
     }
 }
 
-.countryserveaseframe {
+.csfleserviceframe {
     border: 0px solid $color-tan;
     width: calc(100% - 40px);
     height: auto;
@@ -61,7 +61,7 @@
     float: left;
 }
 
-.countryserveasesgroup {
+.csfleservicesgroup {
     width: 100%;
     height: auto;
     display: flex;
@@ -72,14 +72,14 @@
     margin: 0;
 }
 
-.countryservease {
+.csfleservice {
     padding: 0 2.5% 0.5%;
     width: 95%;
     margin: 0 2.5%;
     background-color: $color-shark;
 }
 
-.countryserveaseheader {
+.csfleserviceheader {
     font-weight: bold;
     font-size: 1.1rem;
     line-height: 1.8rem;
@@ -90,7 +90,7 @@
     }
 }
 
-.serveaseframe {
+.serviceframe {
     border: 0px solid $color-tan;
     width: 100%;
     height: auto;
@@ -100,14 +100,14 @@
     float: left;
 }
 
-.serveasepage {
+.servicepage {
     width: 100%;
     height: auto;
     margin: auto;
     float: left;
 }
 
-.serveasegroup {
+.servicegroup {
     margin-top: 5px;
     width: 100%;
     margin-left: 0%;
@@ -134,7 +134,7 @@
     }
 }
 
-.serveaseactive {
+.serviceactive {
     cursor: pointer;
     background-color: $color-hot-cinnamon;
     &:hover {
@@ -142,7 +142,7 @@
     }
 }
 
-.serveaseinactive {
+.serviceinactive {
     cursor: default;
     background-color: $color-hot-cinnamon;
     opacity: 0.5;
@@ -151,7 +151,7 @@
     }
 }
 
-.serveasecontainer {
+.servicecontainer {
     background-color: $color-transparent;
     padding: 15px 5px 0px;
     width: calc(50% - 30px);
@@ -166,12 +166,12 @@
     box-shadow: 0 1px 3px $color-white;
 }
 
-.serveaselink {
+.servicelink {
     width: 100%;
     text-decoration: none;
 }
 
-.serveaseitem {
+.serviceitem {
     width: 90.196078%;
     height: auto;
     border: 0px solid $color-tan;
@@ -184,12 +184,12 @@
     margin-left: 0.5rem;
 }
 
-.serveasepiccontrol {
+.servicepiccontrol {
     width: 65px;
     height: 65px;
 }
 
-.serveaseicon {
+.serviceicon {
     margin: 0 auto;
     padding: 0px;
     width: 6rem;
@@ -198,7 +198,7 @@
     vertical-align: auto;
 }
 
-.serveaseheader {
+.serviceheader {
     background-color: $color-transparent;
     color: $color-white-dark;
     font-weight: bold;
@@ -208,7 +208,7 @@
     margin: 10px 0px 5px;
 }
 
-.serveasemessage {
+.servicemessage {
     width: calc(100% - 20px);
     text-align: left;
     padding: 0px 0px;
@@ -233,12 +233,12 @@
     }
 }
 
-.serveasemessagevisible {
+.servicemessagevisible {
     visibility: visible;
     display: block;
 }
 
-.serveasemessagehidden {
+.servicemessagehidden {
     visibility: hidden;
     display: none;
 }
@@ -655,7 +655,7 @@
         padding: 1%;
         float: left;
     }
-    .serveasebrand, .defaultmessage, .categorycontainer, .processdescription, .promotionblog {
+    .servicebrand, .defaultmessage, .categorycontainer, .processdescription, .promotionblog {
         text-align: left;
     }
     .promotiontitle {

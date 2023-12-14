@@ -2,21 +2,21 @@ import React, {useEffect} from 'react';
 import { NavLink } from "react-router-dom";
 import {getSessionCookie} from "../common/session";
 import {useIndex} from "../common/hook";
-import CountryServEase from "../components/countryservease";
+import CountryServEase from "../components/csfleservice";
 import Loader from "../components/loader";
-import {postAuditEntry} from "../common/common";
+//import {postAuditEntry} from "../common/common";
 import MetaTag from "../components/metatag";
-import {PROMOTION, SERVICE} from "../common/data";
+import {SERVICE} from "../common/data";
 import '../../scss/pages/home.scss';
 
 const source = 'home';
 
 function Home(props) {
     const index = useIndex(window.location.hostname, window.location.protocol);
-    const ddhomeCountry = getSessionCookie('ddhomeCountry');
+    //const ddhomeCountry = getSessionCookie('ddhomeCountry');
     const [countryServEasesData, countryServEasesLoading] = [SERVICE, false];
 
-    useEffect(() => {
+    /*useEffect(() => {
         postAuditEntry(
             {
                 date: new Date(),
@@ -27,7 +27,7 @@ function Home(props) {
                 message: 'Home Page Accessed'
             }
         );
-    }, []);
+    }, []);*/
 
     return (
         <>

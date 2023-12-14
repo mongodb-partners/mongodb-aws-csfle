@@ -5,7 +5,7 @@ import Title from "../components/title";
 import MetaTag from "../components/metatag";
 import Profile from "../components/profile";
 import Loader from "../components/loader";
-import {postAuditEntry} from "../common/common";
+//import {postAuditEntry} from "../common/common";
 import '../../scss/pages/userprofile.scss';
 
 const pagetitle = 'My Profile';
@@ -20,9 +20,9 @@ function UserProfile() {
             identityId: getSessionCookie("credential").identityId
         }
     );
-    const ddhomeCountry = getSessionCookie('ddhomeCountry');
+    //const ddhomeCountry = getSessionCookie('ddhomeCountry');
 
-    useEffect(() => {
+    /*useEffect(() => {
         postAuditEntry(
             {
                 date: new Date(),
@@ -33,7 +33,7 @@ function UserProfile() {
                 message: 'User Profile Page Accessed by ' + getSessionCookie("credential").identityId
             }
         );
-    }, []);
+    }, []);*/
 
     return (
         <>

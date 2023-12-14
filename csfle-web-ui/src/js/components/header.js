@@ -129,7 +129,7 @@ function Header(props) {
         <div className="headerbar">
             <div className="container">
                 <div className="header">
-                    <div className="serveaselogo">
+                    <div className="servicelogo">
                         <NavLink to="/">
                             {/*<img src="/images/heritagebank-banner.png" alt="Tale of DDH"/>*/}
                             <div className="logoshape">

@@ -1,6 +1,6 @@
 @import "../common/common";
 
-.serveasepageframe {
+.servicepageframe {
   border-width: 0px;
   border-style: solid;
   border-color: $color-tan;
@@ -13,7 +13,7 @@
   float: left;
 }
 
-.defaultserveasemessage {
+.defaultservicemessage {
   color: $color-black;
   font-family: Open Sans, Sans-Serif;
   font-size: 1rem;
@@ -48,7 +48,7 @@
   text-align: justify;
 }
 
-.serveasecountrypageframe {
+.servicecountrypageframe {
   border-width: 0px;
   border-style: solid;
   border-color: $color-tan;
@@ -61,7 +61,7 @@
   float: left;
 }
 
-.serveasecountrycontainer {
+.servicecountrycontainer {
   width: calc(100% - 40px);
   height: auto;
   margin: 10px;
@@ -70,7 +70,7 @@
   float: left;
 }
 
-.serveasecountrymessage {
+.servicecountrymessage {
   background-color: $color-transparent;
   padding: 10px;
   margin: 0;
@@ -174,7 +174,7 @@
   height: 20px;
 }
 
-.serveasebuttoncontainer {
+.servicebuttoncontainer {
   width: calc(100% - 40px);
   height: auto;
   margin: 0px 10px 10px;
@@ -242,12 +242,12 @@
   padding-bottom: 10px;
 }
 
-.serveaseenquiryquestion {
+.serviceenquiryquestion {
   display: block;
   width: 100%
 }
 
-.serveaseenquirylabel {
+.serviceenquirylabel {
   color: $color-abbey;
   font-family: Open Sans, Sans-Serif;
   font-size: 1rem;
@@ -256,7 +256,7 @@
   left: 1%;
 }
 
-.serveaseenquirynote {
+.serviceenquirynote {
   color: $color-abbey;
   font-family: Open Sans, Sans-Serif;
   font-size: 0.9rem;
@@ -265,7 +265,7 @@
   left: 1%;
 }
 
-.serveaseenquiryoptions {
+.serviceenquiryoptions {
   display: block;
   width: 100%
 }
@@ -419,10 +419,10 @@
     width: 100%;
     margin-left: 0%;
   }
-  .serveasecountrymessage {
+  .servicecountrymessage {
     text-align: left;
   }
-  .defaultserveasemessage, .message, .serveasecountrymessage, .informationmessage {
+  .defaultservicemessage, .message, .servicecountrymessage, .informationmessage {
     text-align: left;
   }
 }

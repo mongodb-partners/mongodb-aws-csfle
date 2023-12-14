@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useIndex} from "../common/hook";
-import {postAuditEntry} from "../common/common";
+//import {postAuditEntry} from "../common/common";
 import Title from "../components/title";
 import MetaTag from "../components/metatag";
 import Login from "../components/login";
@@ -12,9 +12,9 @@ const source = 'sign-in';
 
 function SignIn() {
     const index = useIndex(window.location.hostname, window.location.protocol);
-    const ddhomeCountry = getSessionCookie('ddhomeCountry');
+    //const ddhomeCountry = getSessionCookie('ddhomeCountry');
 
-    useEffect(() => {
+    /*useEffect(() => {
         postAuditEntry(
             {
                 date: new Date(),
@@ -25,7 +25,7 @@ function SignIn() {
                 message: 'Sign in Page Accessed'
             }
         );
-    })
+    }, []);*/
 
     return (
         <>

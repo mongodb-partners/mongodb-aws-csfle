@@ -6,7 +6,7 @@ import Title from "../components/title";
 import MetaTag from "../components/metatag";
 import Profile from "../components/profile";
 import Loader from "../components/loader";
-import {postAuditEntry} from "../common/common";
+//import {postAuditEntry} from "../common/common";
 import '../../scss/pages/userprofile.scss';
 import View from "../components/view";
 
@@ -29,11 +29,11 @@ function GetCustomerWithKey() {
             identityId: getSessionCookie("credential").identityId
         }
     );
-    const ddhomeCountry = getSessionCookie('ddhomeCountry');
+    //const ddhomeCountry = getSessionCookie('ddhomeCountry');
     const location = useLocation();
     const history = useHistory();
 
-    useEffect(() => {
+    /*useEffect(() => {
         postAuditEntry(
             {
                 date: new Date(),
@@ -44,7 +44,7 @@ function GetCustomerWithKey() {
                 message: 'User Profile Page Accessed by ' + getSessionCookie("credential").identityId
             }
         );
-    }, []);
+    }, []);*/
 
     return (
         <>
