@@ -65,11 +65,11 @@ package:
 #    - exclude-me-dir/**
 
 functions:
-  saveCustomerCSFLE:
-    handler: handler.saveCustomerCSFLE
+  editCustomerCSFLE:
+    handler: handler.editCustomerCSFLE
     events:
       - http:
-          path: saveCustomerCSFLE
+          path: editCustomerCSFLE
           method: post
           cors: true
           authorizer: aws_iam
