@@ -123,13 +123,13 @@ const getCustomerSchema = (dataKey) => {
             email: {
                 encrypt: {
                     bsonType: "string",
-                    algorithm: "AEAD_AES_256_CBC_HMAC_SHA_512-Random",
+                    algorithm: "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic",
                 },
             },
             phone: {
                 encrypt: {
                     bsonType: "string",
-                    algorithm: "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic",
+                    algorithm: "AEAD_AES_256_CBC_HMAC_SHA_512-Random",
                 },
             },
         },
