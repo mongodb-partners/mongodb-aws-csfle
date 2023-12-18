@@ -17,8 +17,7 @@ function GetCustomerNoKey() {
         "getCustomerNoKey",
         "/getCustomerNoKey",
         {
-            identityId: getSessionCookie("credential").identityId,
-            email: getSessionCookie("credential").email
+            identityId: getSessionCookie("credential").identityId
         }
     );
     const location = useLocation();
