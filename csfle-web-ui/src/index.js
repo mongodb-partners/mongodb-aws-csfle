@@ -21,13 +21,13 @@ Amplify.configure({
             responseType: 'code' // or 'token', note that REFRESH token will only be generated when the responseType is code
         }
     },
-    Storage: {
+    /*Storage: {
         region: AWS_CONFIG.s3.REGION,
         bucket: AWS_CONFIG.s3.BUCKET
-    },
+    },*/
     API: {
         endpoints: [
-            {
+            /*{
                 name: 'createAuditEntry',
                 endpoint: AWS_CONFIG.apiGateway.URL + '/auth',
                 region: AWS_CONFIG.apiGateway.REGION
@@ -71,9 +71,9 @@ Amplify.configure({
                 name: 'findUserRole',
                 endpoint: AWS_CONFIG.apiGateway.URL + '/auth',
                 region: AWS_CONFIG.apiGateway.REGION
-            },
+            },*/
             {
-                name: 'saveCustomerCSFLE',
+                name: 'editCustomerCSFLE',
                 endpoint: AWS_CONFIG.apiGateway.URL + '/csfle',
                 region: AWS_CONFIG.apiGateway.REGION
             },

@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import {API, Auth} from "aws-amplify";
+import { Auth } from "aws-amplify";
 import CookieConsent from "react-cookie-consent";
 import ReactGA from 'react-ga';
-import {SessionContext, getSessionCookie, setSessionCookie} from "./common/session";
-import {useFetch, useGet} from "./common/hook";
+import { SessionContext, getSessionCookie, setSessionCookie } from "./common/session";
+import { useFetch } from "./common/hook";
 import {GEOLOCATION_URL, GTAG_TRACKING_ID} from './common/constants';
+import { MENU } from "./common/data";
 import AuthenticatedRoute from "./common/authenticatedroute";
 import UnauthenticatedRoute from "./common/unauthenticatedroute";
-import {onError} from "./common/error";
+import { onError } from "./common/error";
 import ScrollToTop from "./common/scroll";
 import ResponsiveNavigation from "./components/responsivenavigation";
 import Header from './components/header';
@@ -19,15 +20,13 @@ import Home from './pages/home';
 import SignUp from "./pages/signup";
 import SignIn from "./pages/signin";
 import ResetPassword from "./pages/resetpassword";
-import UserProfile from "./pages/userprofile";
 import ChangePassword from "./pages/changepassword";
 import Loader from "./components/loader";
-import Error from "./pages/error";
-import { MENU } from "./common/data";
-import '../scss/app.scss';
 import EditCustomerCSFLE from "./pages/editcustomercsfle";
 import GetCustomerWithKey from "./pages/getcustomerwithkey";
 import GetCustomerNoKey from "./pages/getcustomernokey";
+import Error from "./pages/error";
+import '../scss/app.scss';
 
 ReactGA.initialize(GTAG_TRACKING_ID);
 const history = createBrowserHistory();
@@ -60,15 +59,15 @@ function App() {
             const email = user.attributes.email;
             userHasAuthenticated(true);
             const credentials = await Auth.currentUserCredentials();
-            setSessionCookie("credential", {identityId: credentials.identityId});
-            await API.put("updateUserProfile", "/updateUserProfile", {
+            setSessionCookie("credential", {identityId: credentials.identityId, email: email});
+            /*await API.put("updateUserProfile", "/updateUserProfile", {
                 response: true,
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
                 body: {email: email, identityId: credentials.identityId, updatedAt: new Date(), lastLogin: new Date()},
-            });
+            });*/
         }
         catch(e) {
             if (e !== 'No current user') {
@@ -145,10 +144,6 @@ function App() {
                                     <UnauthenticatedRoute
                                         exact path="/reset-password"
                                         render={(props) => <ResetPassword {...props} />}
-                                    />
-                                    <AuthenticatedRoute
-                                        exact path="/my-profile"
-                                        render={(props) => <UserProfile {...props} />}
                                     />
                                     <AuthenticatedRoute
                                         exact path="/change-password"

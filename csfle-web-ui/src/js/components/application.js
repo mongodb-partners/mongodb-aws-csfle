@@ -16,9 +16,7 @@ import '../../scss/components/profile.scss';
 import '../../scss/components/popup.scss';
 
 function Application(props) {
-    const history = useHistory();
     const [isLoading, setIsLoading] = useState(false);
-    const ddhomeCountry = getSessionCookie('ddhomeCountry');
     const countryEntries = Object.entries(countries);
     let countryOpts = [];
     let i = 0;
@@ -32,21 +30,21 @@ function Application(props) {
         {sequence: 2, value: 'Female', label: 'Female'},
         {sequence: 3, value: 'Preferred not to say', label: 'Preferred not to say'}
     ]
-    const profile = props.data;
+    const profile = props.data ? props.data : {};
 
     const [fields, handleFieldChange] = useFormFields({
-        firstName : profile.firstName,
-        lastName: profile.lastName,
-        dateOfBirth: dateFormatToString(new Date(profile.dateOfBirth)),
-        gender: profile.gender,
-        email : profile.email,
-        address1: profile.address1,
-        address2: profile.address2,
-        city: profile.city,
-        postCode: profile.postCode,
-        countryCode: profile.countryCode,
-        phone: profile.phone,
-        mailingFlag: profile.mailingFlag
+        firstName : profile.firstName? profile.firstName : '',
+        lastName: profile.lastName ? profile.lastName : '',
+        dateOfBirth: profile.dateOfBirth ? dateFormatToString(new Date(profile.dateOfBirth)) : '',
+        gender: profile.gender ? profile.gender : '',
+        email : profile.email ? profile.email : getSessionCookie("credential").email,
+        address1: profile.address1 ? profile.address1 : '',
+        address2: profile.address2 ? profile.address2 : '',
+        city: profile.city ? profile.city : '',
+        postCode: profile.postCode ? profile.postCode : '',
+        countryCode: profile.countryCode ? profile.countryCode : '',
+        phone: profile.phone ? profile.phone : '',
+        mailingFlag: profile.mailingFlag ? profile.mailingFlag : false
     });
 
     const submitApplication = async (submitEvent) => {

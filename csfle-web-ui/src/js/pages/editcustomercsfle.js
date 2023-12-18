@@ -14,10 +14,11 @@ const source = 'edit-customer-csfle';
 function EditCustomerCSFLE() {
     const index = useIndex(window.location.hostname, window.location.protocol);
     const [data, loading] = usePost(
-        "findUserProfile",
-        "/findUserProfile",
+        "getCustomerWithKey",
+        "/getCustomerWithKey",
         {
-            identityId: getSessionCookie("credential").identityId
+            identityId: getSessionCookie("credential").identityId,
+            email: getSessionCookie("credential").email
         }
     );
     const location = useLocation();
