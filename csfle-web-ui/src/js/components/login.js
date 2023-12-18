@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import {NavLink, useHistory} from 'react-router-dom';
-import { Auth, API } from 'aws-amplify';
+import { Auth } from 'aws-amplify';
 import {useFormFields} from "../common/hook";
-import {useSessionContext, getSessionCookie, setSessionCookie} from "../common/session";
+import {useSessionContext, setSessionCookie} from "../common/session";
 import {onError} from "../common/error";
 import TypeInput from "../components/typeInput";
 import LoaderButton from "./loaderbutton";

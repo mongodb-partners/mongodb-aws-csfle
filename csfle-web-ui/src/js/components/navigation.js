@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Icon from "../common/icon";
 import '../../scss/components/navigation.scss'
 
@@ -9,6 +9,8 @@ function Navigation(props) {
             return (
                 <MenuItem key={index} menu={item} />
             )
+        } else {
+            return <></>
         }
     });
 

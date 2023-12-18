@@ -22,7 +22,6 @@ function CSFLEService(props) {
         }
 
     }
-    const [countryCodes, setCountryCodes] = useState([]);
     const [country, setCountry] = useState({
             country_code : ddhomeCountry.country_code,
             country_name : countries[ddhomeCountry.country_code]
@@ -31,13 +30,6 @@ function CSFLEService(props) {
 
     useEffect(() => {
         props.ddhomeCountryCallBack(country);
-        let countryCodesDetails = [];
-        for(let i in props.csfleServiceData) {
-            countryCodesDetails.push(props.csfleServiceData[i].countryCode);
-        }
-
-        setCountryCodes([...countryCodesDetails]);
-        console.log("countryCodes", countryCodesDetails);
     }, [])
 
     const onCountryServEaseClick = (countryCode, link, model, available) => {
@@ -72,16 +64,6 @@ function CSFLEService(props) {
                 ))}
             </ul>
         </div>
-    )
-}
-
-function ServEases(props) {
-    return (
-        <ul className="servicegroup">
-            {props.csfleService.map((item, index) => (
-                <Service key={index} service={item} />
-            ))}
-        </ul>
     )
 }
 

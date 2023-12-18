@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {API, Auth} from "aws-amplify";
+import React, { useState } from "react";
+import { Auth } from "aws-amplify";
 import LoaderButton from "./loaderbutton";
 
 function GoogleButton(props) {

@@ -27,53 +27,8 @@ Amplify.configure({
     },*/
     API: {
         endpoints: [
-            /*{
-                name: 'createAuditEntry',
-                endpoint: AWS_CONFIG.apiGateway.URL + '/auth',
-                region: AWS_CONFIG.apiGateway.REGION
-            },
             {
-                name: 'findIdentity',
-                endpoint: AWS_CONFIG.apiGateway.URL + '/auth',
-                region: AWS_CONFIG.apiGateway.REGION
-            },
-            {
-                name: 'createUser',
-                endpoint: AWS_CONFIG.apiGateway.URL + '/auth',
-                region: AWS_CONFIG.apiGateway.REGION
-            },
-            {
-                name: 'findUser',
-                endpoint: AWS_CONFIG.apiGateway.URL + '/auth',
-                region: AWS_CONFIG.apiGateway.REGION
-            },
-            {
-                name: 'updateUser',
-                endpoint: AWS_CONFIG.apiGateway.URL + '/auth',
-                region: AWS_CONFIG.apiGateway.REGION
-            },
-            {
-                name: 'createUserProfile',
-                endpoint: AWS_CONFIG.apiGateway.URL + '/auth',
-                region: AWS_CONFIG.apiGateway.REGION
-            },
-            {
-                name: 'findUserProfile',
-                endpoint: AWS_CONFIG.apiGateway.URL + '/auth',
-                region: AWS_CONFIG.apiGateway.REGION
-            },
-            {
-                name: 'updateUserProfile',
-                endpoint: AWS_CONFIG.apiGateway.URL + '/auth',
-                region: AWS_CONFIG.apiGateway.REGION
-            },
-            {
-                name: 'findUserRole',
-                endpoint: AWS_CONFIG.apiGateway.URL + '/auth',
-                region: AWS_CONFIG.apiGateway.REGION
-            },*/
-            {
-                name: 'editCustomerCSFLE',
+                name: 'saveCustomerCSFLE',
                 endpoint: AWS_CONFIG.apiGateway.URL + '/csfle',
                 region: AWS_CONFIG.apiGateway.REGION
             },

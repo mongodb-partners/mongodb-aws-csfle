@@ -9,7 +9,7 @@ import '../../scss/pages/userprofile.scss';
 import Application from "../components/application";
 
 const pagetitle = 'Edit Customer CSFLE';
-const source = 'edit-customer-csfle';
+const source = 'save-customer-csfle';
 
 function EditCustomerCSFLE() {
     const index = useIndex(window.location.hostname, window.location.protocol);

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { NavLink, useHistory } from "react-router-dom";
 import {Auth} from "aws-amplify";
-import {getSessionCookie, getSessionStorage, removeSessionCookie, useSessionContext} from "../common/session";
+import {removeSessionCookie, useSessionContext} from "../common/session";
 import {onError} from "../common/error";
 import Icon from "../common/icon";
 import '../../scss/components/header.scss';
@@ -11,17 +11,7 @@ function Header(props) {
     const { isAuthenticated, userHasAuthenticated } = useSessionContext();
     const [isAuthenticating, setIsAuthenticating] = useState(true);
     //let count = 0;
-    const ddhomeCountry = getSessionCookie('ddhomeCountry');
-    let countryCode;
-    if(props.country.country_code !== undefined) {
-        countryCode = props.country.country_code;
-    } else if(Object.keys(ddhomeCountry).length !== 0 || ddhomeCountry.constructor !== Object) {
-        countryCode = ddhomeCountry.country_code;
-    } else {
-        let geolocationData = getSessionStorage('geolocation');
-        countryCode = geolocationData.country_code;
-    }
-    console.log(props.menus);
+    //console.log(props.menus);
 
     useEffect(() => {
         onLoad();
@@ -179,28 +169,5 @@ function Header(props) {
     )
 
 }
-
-/*function DDHomeLanguage(props) {
-    return (
-        <div className="visitorlanguage">
-            <label className="headertext">
-                <img src="/images/icon-english.png" alt="English" />&nbsp;&nbsp;
-            </label>
-        </div>
-    )
-}
-
-function Links(props) {
-    return (
-        <div className="links">
-            <label className="visitorlanguage">
-                <img src="/images/icon-english.png" alt="English" />&nbsp;&nbsp;
-            </label>
-            <label className="headertext">
-                {props.menus}
-            </label>
-        </div>
-    )
-}*/
 
 export default Header;

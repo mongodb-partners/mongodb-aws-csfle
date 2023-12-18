@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Auth } from "aws-amplify";
 import { NavLink } from "react-router-dom";
 import {useIndex, useFormFields} from "../common/hook";

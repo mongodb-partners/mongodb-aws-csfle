@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Auth, API } from 'aws-amplify';
+import { Auth } from 'aws-amplify';
 import {useFormFields} from "../common/hook";
-import {useSessionContext, getSessionCookie, setSessionCookie} from "../common/session";
+import {useSessionContext, setSessionCookie} from "../common/session";
 import {onError} from "../common/error";
 import TypeInput from "../components/typeInput";
 import LoaderButton from "./loaderbutton";
@@ -13,7 +13,6 @@ import '../../scss/components/registration.scss';
 function Registration(props) {
     const history = useHistory();
     const { userHasAuthenticated } = useSessionContext();
-    const ddhomeCountry = getSessionCookie('ddhomeCountry');
     const [isLoading, setIsLoading] = useState(false);
     const [newUser, setNewUser] = useState(null);
 
@@ -71,7 +70,7 @@ function Registration(props) {
     }
 
     const validateForm = () => {
-        const emailRegex = RegExp('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$');
+        const emailRegex = RegExp('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$');
         const passwordRegex = RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\\w\\s]).{8,}$');
         return fields.username.match(emailRegex)
             && fields.password.match(passwordRegex)

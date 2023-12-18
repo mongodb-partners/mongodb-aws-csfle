@@ -4,7 +4,7 @@ const database = process.env['DB_NAME']
 const collection = process.env['COLLECTION_NAME'];
 const mdb = require('./mdb');
 
-module.exports.editCustomerCSFLE = async (event) => {
+module.exports.saveCustomerCSFLE = async (event) => {
     const data = JSON.parse(event.body);
     const userId = event.requestContext.identity.cognitoIdentityId;
 

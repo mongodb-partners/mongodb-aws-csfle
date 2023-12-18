@@ -31,7 +31,6 @@ function LoaderButton(props) {
             tabIndex={0}
             id={props.id}
             name={props.name}
-            className="loaderbutton"
             ref={props.ref}
             defaultValue={props.label}
             className={`loaderbutton ${props.className}`}

@@ -1,19 +1,16 @@
 import React, {useState} from 'react';
-import {NavLink, useHistory} from 'react-router-dom';
 import {API} from "aws-amplify";
 import {dateFormatToString} from "../common/common";
-import {useIndex, useFormFields} from "../common/hook";
+import { useFormFields } from "../common/hook";
 import {getSessionCookie} from "../common/session";
 import {onError} from "../common/error";
 import countries from "../common/countries";
 import TypeInput from "./typeInput";
-import TextArea from "./textarea";
 import CheckBox from "./checkbox";
 import LoaderButton from "./loaderbutton";
 import Select from "./select";
 import Radio from "./radio";
 import '../../scss/components/profile.scss';
-import '../../scss/components/popup.scss';
 
 function Application(props) {
     const [isLoading, setIsLoading] = useState(false);

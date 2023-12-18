@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useLocation} from "react-router";
 import {useIndex, usePost} from "../common/hook";
 import {getSessionCookie} from "../common/session";

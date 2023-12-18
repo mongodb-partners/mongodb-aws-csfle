@@ -3,7 +3,6 @@ import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { Auth } from "aws-amplify";
 import CookieConsent from "react-cookie-consent";
-import ReactGA from 'react-ga';
 import { SessionContext, getSessionCookie, setSessionCookie } from "./common/session";
 import { useFetch } from "./common/hook";
 import {GEOLOCATION_URL, GTAG_TRACKING_ID} from './common/constants';
@@ -28,13 +27,7 @@ import GetCustomerNoKey from "./pages/getcustomernokey";
 import Error from "./pages/error";
 import '../scss/app.scss';
 
-ReactGA.initialize(GTAG_TRACKING_ID);
 const history = createBrowserHistory();
-history.listen(location => {
-    ReactGA.set({ page: location.pathname })
-    ReactGA.pageview(location.pathname)
-})
-
 function App() {
     const [menuList, menuLoading] = [MENU, false];
     const [geolocationData, geolocationLoading] = useFetch(GEOLOCATION_URL, 'geolocation');
@@ -46,9 +39,8 @@ function App() {
     const [isAuthenticated, userHasAuthenticated] = useState(false);
     const [session] = useState(getSessionCookie);
 
-    useEffect(() => {
-        onLoad();
-        ReactGA.pageview(window.location.pathname);
+    useEffect(async () => {
+        await onLoad();
     }, [])
 
     async function onLoad() {

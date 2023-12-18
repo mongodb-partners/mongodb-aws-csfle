@@ -1,5 +1,4 @@
 import React  from 'react';
-import countries from "../common/countries";
 import '../../scss/components/title.scss'
 
 function Title(props) {
@@ -7,7 +6,7 @@ function Title(props) {
     if(props.icon) {
         message =
             <>
-                {props.message.toUpperCase()} <img src={"/images/" + props.icon} />
+                {props.message.toUpperCase()} <img src={"/images/" + props.icon} alt={props.icon}/>
             </>
     } else {
         message =

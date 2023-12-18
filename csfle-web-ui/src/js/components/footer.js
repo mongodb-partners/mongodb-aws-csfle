@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
-import {NavLink, Link} from "react-router-dom";
+import React from 'react';
+import { NavLink } from "react-router-dom";
 import '../../scss/components/footer.scss'
-import Icon from "../common/icon";
 
 function Footer(props) {
-    const [showTermsAndConditionsPopup, setTermsAndConditionsPopup] = useState(false);
-
-    const toggleTermsAndConditionsPopup = () => {
-        setTermsAndConditionsPopup(!showTermsAndConditionsPopup);
-    }
-
     let count = 0;
     let menus = props.menus.map((item) => {
-        let separator = '   |   ';
+        //let separator = '   |   ';
         if(item.position === 'Footer') {
             count++
             return (
@@ -22,6 +15,8 @@ function Footer(props) {
                     </NavLink>
                 </div>
             )
+        } else {
+            return <></>
         }
     });
 

@@ -4,7 +4,6 @@ import Title from "../components/title";
 import MetaTag from "../components/metatag";
 import Registration from "../components/registration";
 import '../../scss/pages/signup.scss';
-import {getSessionCookie} from "../common/session";
 
 const pagetitle = 'Sign up';
 const source = 'sign-up';
