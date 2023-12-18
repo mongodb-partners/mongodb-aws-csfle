@@ -12,7 +12,7 @@ import Select from "./select";
 import Radio from "./radio";
 import '../../scss/components/profile.scss';
 
-function Application(props) {
+function EditProfile(props) {
     const [isLoading, setIsLoading] = useState(false);
     const countryEntries = Object.entries(countries);
     let countryOpts = [];
@@ -271,4 +271,4 @@ function Application(props) {
     )
 }
 
-export default Application;
+export default EditProfile;

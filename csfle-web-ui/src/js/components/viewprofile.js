@@ -4,7 +4,7 @@ import Countries from "../common/countries";
 import Label from "./label";
 import '../../scss/components/profile.scss';
 
-function View(props) {
+function ViewProfile(props) {
 
     const customer = props.data;
 
@@ -64,4 +64,4 @@ function View(props) {
     )
 }
 
-export default View;
+export default ViewProfile;

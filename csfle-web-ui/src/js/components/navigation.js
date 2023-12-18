@@ -7,10 +7,8 @@ function Navigation(props) {
     let menus = props.menus.map((item, index) => {
         if(item.type === 'All') {
             return (
-                <MenuItem key={index} menu={item} />
+                <MenuItem d menu={item} />
             )
-        } else {
-            return <></>
         }
     });
 

@@ -6,7 +6,7 @@ import Title from "../components/title";
 import MetaTag from "../components/metatag";
 import Loader from "../components/loader";
 import '../../scss/pages/userprofile.scss';
-import Application from "../components/application";
+import EditProfile from "../components/editprofile.";
 
 const pagetitle = 'Edit Customer CSFLE';
 const source = 'save-customer-csfle';
@@ -33,7 +33,7 @@ function EditCustomerCSFLE() {
                         {loading ? (
                             <Loader loading={loading} />
                         ) : (
-                            <Application data={data} source={source} docs={location.state}/>
+                            <EditProfile data={data} source={source} docs={location.state}/>
                         )}
                     </div>
                 </div>

@@ -5,7 +5,7 @@ import {getSessionCookie} from "../common/session";
 import Title from "../components/title";
 import MetaTag from "../components/metatag";
 import Loader from "../components/loader";
-import View from "../components/view";
+import ViewProfile from "../components/viewprofile";
 import '../../scss/pages/userprofile.scss';
 
 const pagetitle = 'Get Customer with Key';
@@ -33,7 +33,7 @@ function GetCustomerWithKey() {
                         {loading ? (
                             <Loader loading={loading} />
                         ) : (
-                            <View data={data} source={source} docs={location.state}/>
+                            <ViewProfile data={data} source={source} docs={location.state}/>
                         )}
                     </div>
                 </div>

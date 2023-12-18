@@ -56,15 +56,9 @@ function Login() {
             await Auth.signIn(fields.username, fields.password);
             userHasAuthenticated(true);
             const credentials = await Auth.currentUserCredentials();
-            setSessionCookie("credential", {identityId: credentials.identityId});
-            /*await API.post("createUserProfile", "/createUserProfile", {
-                response: true,
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: {email: fields.username, identityId: credentials.identityId, updatedAt: new Date(), lastLogin: new Date()},
-            });*/
+            const user = await Auth.currentAuthenticatedUser();
+            const email = user.attributes.email;
+            setSessionCookie("credential", {identityId: credentials.identityId, email: email});
             history.push("/");
         } catch (e) {
             onError(e);
@@ -134,10 +128,10 @@ function Login() {
                                       isLoading={isLoading} />
                     </div>
                     <div className="signupmessagecontainer">
-                        <p className="messagecontainer">
+                        <div className="messagecontainer">
                             <p className="forgotpasswordmessage"><NavLink to="/reset-password">Forgot Password</NavLink></p>
                             <p className="signupmessage"><NavLink to="/sign-up">New User Sign-up</NavLink></p>
-                        </p>
+                        </div>
                     </div>
                 </form>
             </>

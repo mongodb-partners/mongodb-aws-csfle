@@ -5,7 +5,7 @@ import { Auth } from "aws-amplify";
 import CookieConsent from "react-cookie-consent";
 import { SessionContext, getSessionCookie, setSessionCookie } from "./common/session";
 import { useFetch } from "./common/hook";
-import {GEOLOCATION_URL, GTAG_TRACKING_ID} from './common/constants';
+import { GEOLOCATION_URL } from './common/constants';
 import { MENU } from "./common/data";
 import AuthenticatedRoute from "./common/authenticatedroute";
 import UnauthenticatedRoute from "./common/unauthenticatedroute";
@@ -52,14 +52,6 @@ function App() {
             userHasAuthenticated(true);
             const credentials = await Auth.currentUserCredentials();
             setSessionCookie("credential", {identityId: credentials.identityId, email: email});
-            /*await API.put("updateUserProfile", "/updateUserProfile", {
-                response: true,
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: {email: email, identityId: credentials.identityId, updatedAt: new Date(), lastLogin: new Date()},
-            });*/
         }
         catch(e) {
             if (e !== 'No current user') {

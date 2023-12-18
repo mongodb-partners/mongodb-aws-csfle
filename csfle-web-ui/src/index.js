@@ -2,7 +2,7 @@ import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Amplify, Storage } from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
 import { AWS_CONFIG } from './js/common/constants';
 import App from './js/app';
 import reportwebvitals from './js/common/reportwebvitals';
@@ -21,10 +21,6 @@ Amplify.configure({
             responseType: 'code' // or 'token', note that REFRESH token will only be generated when the responseType is code
         }
     },
-    /*Storage: {
-        region: AWS_CONFIG.s3.REGION,
-        bucket: AWS_CONFIG.s3.BUCKET
-    },*/
     API: {
         endpoints: [
             {
