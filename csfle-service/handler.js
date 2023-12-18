@@ -28,7 +28,7 @@ module.exports.saveCustomerCSFLE = async (event) => {
         countryCode: data.countryCode ? data.countryCode : '',
         phone: data.phone ? data.phone : '',
         about: data.about ? data.about : '',
-        mailingFlag: data.mailingFlag ? JSON.stringify(data.mailingFlag).toUpperCase() === 'TRUE' : true,
+        mailingFlag: data.mailingFlag ? (JSON.stringify(data.mailingFlag).toUpperCase() === 'TRUE' ? true : false) : false,
         updatedAt: new Date(),
         lastLogin: new Date()
     }
