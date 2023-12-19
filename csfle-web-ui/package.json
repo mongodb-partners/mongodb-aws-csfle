@@ -25,9 +25,8 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
-    "aws-amplify": "^3.3.9",
+    "aws-amplify": "^5.3.13",
     "history": "^4.10.1",
-    "sass": "^1.45.0",
     "postinstall": "^0.7.0",
     "prop-types": "^15.7.2",
     "rc-menu": "^8.10.0",
@@ -40,8 +39,9 @@
     "react-meta-tags": "^1.0.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.1",
+    "react-scripts": "^5.0.1",
     "react-spinners": "^0.9.0",
+    "sass": "^1.45.0",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -51,11 +51,11 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "css-loader": "^6.8.1",
     "emotion": "^10.0.27",
-    "style-loader": "^1.2.1",
-    "css-loader": "^3.6.0",
+    "file-loader": "^6.1.0",
     "sass-loader": "^9.0.3",
-    "file-loader": "^6.1.0"
+    "style-loader": "^1.2.1"
   },
   "eslintConfig": {
     "extends": [
