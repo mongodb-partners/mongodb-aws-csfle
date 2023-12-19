@@ -34,12 +34,7 @@ module.exports.saveCustomerCSFLE = async (event) => {
 
     const existingCustomer = await getCustomer(client, userId);
 
-    let response;
-    if(existingCustomer) {
-        response = (!userId || userId === undefined) ? {} : await mdb.updateDocument(client, database, collection,  { "identityId": userId }, customer);
-    } else {
-        response = (!userId || userId === undefined) ? {} : await mdb.insertDocument(client, database, collection,  customer);
-    }
+    const response = (!userId || userId === undefined) ? {} : await mdb.updateOrInsertDocument(client, database, collection,  { "identityId": userId }, { "$set": customer }, { "upsert": true });
 
     return {
         statusCode: 200,

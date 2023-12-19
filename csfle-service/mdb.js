@@ -56,6 +56,10 @@ module.exports.insertDocuments = async (client, database, collection, documents)
     return await client.db(database).collection(collection).insertMany(documents);
 };
 
+module.exports.updateOrInsertDocument = async (client, database, collection, query, update, options) => {
+    return await client.db(database).collection(collection).updateOne(query, update, options);
+};
+
 module.exports.updateDocument = async (client, database, collection, query, update) => {
     return await client.db(database).collection(collection).updateOne(query, update);
 };
