@@ -14,7 +14,6 @@ module.exports.saveCustomerCSFLE = async (event) => {
 
     const client = await mdb.getClient(true, encryptionOption);
 
-
     const customer = {
         identityId: data.identityId,
         firstName: data.firstName ? data.firstName : '',
@@ -33,7 +32,14 @@ module.exports.saveCustomerCSFLE = async (event) => {
         lastLogin: new Date()
     }
 
-    const response = (!userId || userId === undefined) ? {} : await mdb.insertDocument(client, database, collection,  customer);
+    const existingCustomer = await getCustomer(client, userId);
+
+    let response;
+    if(existingCustomer) {
+        response = (!userId || userId === undefined) ? {} : await mdb.updateDocument(client, database, collection,  { "identityId": userId }, customer);
+    } else {
+        response = (!userId || userId === undefined) ? {} : await mdb.insertDocument(client, database, collection,  customer);
+    }
 
     return {
         statusCode: 200,
@@ -46,9 +52,7 @@ module.exports.saveCustomerCSFLE = async (event) => {
 }
 
 module.exports.getCustomerWithKey = async (event) => {
-    const data = JSON.parse(event.body);
     const userId = event.requestContext.identity.cognitoIdentityId;
-    const email = data.email ? data.email : '';
 
     const dataEncryptionKey = await encrypt.getDataEncryptionKey("customer");
     const schema = getCustomerSchema(dataEncryptionKey);
@@ -56,7 +60,7 @@ module.exports.getCustomerWithKey = async (event) => {
 
     const client = await mdb.getClient(true, encryptionOption);
 
-    const response = (!userId || userId === undefined) ? {} : await mdb.findDocument(client, database, collection, email !== '' ? { "identityId": userId, "email": email } : { "identityId": userId });
+    const response = await getCustomer(client, userId);
 
     return {
         statusCode: 200,
@@ -69,13 +73,11 @@ module.exports.getCustomerWithKey = async (event) => {
 }
 
 module.exports.getCustomerNoKey = async (event) => {
-    const data = JSON.parse(event.body);
     const userId = event.requestContext.identity.cognitoIdentityId;
-    const email = data.email ? data.email : '';
 
     const client = await mdb.getClient(false);
 
-    const response = (!userId || userId === undefined) ? {} : await mdb.findDocument(client, database, collection, email !== '' ? { "identityId": userId, "email": email } : { "identityId": userId });
+    const response = await getCustomer(client, userId);
 
     return {
         statusCode: 200,
@@ -85,6 +87,10 @@ module.exports.getCustomerNoKey = async (event) => {
             "Access-Control-Allow-Credentials": true,
         }
     };
+}
+
+const getCustomer = async (client, userId) => {
+    return (!userId || userId === undefined) ? {} : await mdb.findDocument(client, database, collection, { "identityId": userId });
 }
 
 const getCustomerSchema = (dataKey) => {
