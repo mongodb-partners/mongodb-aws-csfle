@@ -10,3 +10,4 @@ jspm_packages
 .env
 .env.dev.local
 .env.prod.local
+/mongo_crypt_shared/
