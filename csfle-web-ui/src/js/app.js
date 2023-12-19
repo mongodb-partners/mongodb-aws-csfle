@@ -134,7 +134,7 @@ function App() {
                                         render={(props) => <ChangePassword {...props} />}
                                     />
                                     <AuthenticatedRoute
-                                        path="/edit-customer-csfle"
+                                        path="/save-customer-csfle"
                                         render={(props) => <EditCustomerCSFLE {...props} countryName={ddhomeCountry.country_name} countryCode={ddhomeCountry.country_code} />}
                                     />
                                     <AuthenticatedRoute
