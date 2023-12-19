@@ -33,7 +33,6 @@ function EditProfile(props) {
         firstName : profile.firstName? profile.firstName : '',
         lastName: profile.lastName ? profile.lastName : '',
         dateOfBirth: profile.dateOfBirth ? dateFormatToString(new Date(profile.dateOfBirth)) : '',
-        gender: profile.gender ? profile.gender : '',
         email : profile.email ? profile.email : getSessionCookie("credential").email,
         address1: profile.address1 ? profile.address1 : '',
         address2: profile.address2 ? profile.address2 : '',
@@ -46,14 +45,12 @@ function EditProfile(props) {
 
     const submitApplication = async (submitEvent) => {
         submitEvent.preventDefault();
-        console.log(fields.gender)
         setIsLoading(true);
         let application = {
             identityId: getSessionCookie("credential").identityId,
             firstName : fields.firstName,
             lastName: fields.lastName,
             dateOfBirth: new Date(fields.dateOfBirth),
-            gender: fields.gender,
             email: fields.email,
             address1: fields.address1,
             address2: fields.address2,
@@ -139,23 +136,6 @@ function EditProfile(props) {
                                    placeHolder="e.g. Smith"
                                    pattern="^[A-Za-z0-9 ]{1,50}$"
                                    onChange={handleFieldChange} />
-                    </div>
-                    <div className="profilefieldcontainer">
-                        <p style={{margin: '0 auto', paddingBottom: '5px'}}>Gender</p>
-                        <ul style={{listStyle: 'none', margin: '0 auto', padding: '0px'}}>
-                            {genders.map((item, index) => (
-                                <li key={index} style={{display: 'inline'}}>
-                                    <Radio id={item.sequence + ''}
-                                           name="gender"
-                                           label={item.label}
-                                           disabled={false}
-                                           required={false}
-                                           value={item.value}
-                                           checked={fields.gender === item.value}
-                                           onChange={handleFieldChange} />
-                                </li>
-                            ))}
-                        </ul>
                     </div>
                     <div className="profilefieldcontainer">
                         <TypeInput id="5"

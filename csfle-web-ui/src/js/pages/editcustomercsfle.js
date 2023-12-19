@@ -8,7 +8,7 @@ import Loader from "../components/loader";
 import '../../scss/pages/userprofile.scss';
 import EditProfile from "../components/editprofile.";
 
-const pagetitle = 'Edit Customer CSFLE';
+const pagetitle = 'Save Customer CSFLE';
 const source = 'save-customer-csfle';
 
 function EditCustomerCSFLE() {

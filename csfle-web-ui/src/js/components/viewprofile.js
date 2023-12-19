@@ -24,10 +24,6 @@ function ViewProfile(props) {
                     <Label name="3" label={customer ? customer.dateOfBirth : ''} required={false} />
                 </div>
                 <div className="profilefieldcontainer">
-                    <Label name="Gender" label="Gender" required={false} />
-                    <Label name="4" label={customer ? customer.gender : ''} required={false} />
-                </div>
-                <div className="profilefieldcontainer">
                     <Label name="Email" label="Email" required={false} />
                     <Label name="5" label={customer ? customer.email : ''} required={false} />
                 </div>
