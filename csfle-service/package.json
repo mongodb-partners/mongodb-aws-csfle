@@ -1,7 +1,7 @@
 {
-  "name": "mortgage-service",
-  "version": "1.0.0",
-  "description": "Mortgate Service APIs for Octank",
+  "name": "csfle-service",
+  "version": "0.0.1",
+  "description": "MongoDB Client Side Field Level Encryption service",
   "main": "handler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,22 +10,21 @@
   "license": "GPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/devadyut/octank-api.git"
+    "url": "git+ssh://git@github.com/mongodb-partners/mongodb-aws-csfle.git"
   },
   "keywords": [
-    "octank",
-    "db",
-    "mortgage"
+    "csfle",
+    "mongodb",
+    "aws",
+    "lambda",
+    "kms"
   ],
   "bugs": {
-    "url": "https://github.com/devadyut/octank-api/issues"
+    "url": "https://github.com/mongodb-partners/mongodb-aws-csfle/issues"
   },
-  "homepage": "https://github.com/devadyut/octank-api#readme",
+  "homepage": "https://mongodb.com",
   "dependencies": {
-    "@fast-csv/format": "^4.3.5",
-    "@fast-csv/parse": "^4.3.6",
     "dotenv": "^16.0.3",
-    "fast-csv": "^4.3.5",
     "mongodb": "^6.0.0",
     "mongodb-client-encryption": "^6.0.0"
   },
