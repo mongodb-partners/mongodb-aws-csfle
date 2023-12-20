@@ -7,7 +7,7 @@ import MetaTag from "../components/metatag";
 import {NavLink} from "react-router-dom";
 import '../../scss/pages/error.scss';
 
-const pagetitle = 'Taleofddh Page Not Found';
+const pagetitle = 'CSFLE Web UI Page Not Found';
 const source = 'error';
 
 function Error() {
@@ -20,10 +20,9 @@ function Error() {
                 <div className="container">
                     <div className="errorframe">
                         <Title message={pagetitle} />
-                        <div className="errormessage">
+                        <div className="errormessagecontainer">
                             <p>Your requested page is not available or the application has generated an error.</p>
-                            <p>Please visit <NavLink to="/">Taleofddh Home Page</NavLink> to search for features</p>
-                            <p>If you have any specific query please <NavLink to="/contact-us">Contact Us</NavLink>.</p>
+                            <p>Please visit <NavLink to="/">CSFLE Web UI Home Page</NavLink> to browse for features</p>
                         </div>
                     </div>
                 </div>

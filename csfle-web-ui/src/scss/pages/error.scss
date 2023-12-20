@@ -4,23 +4,24 @@
     border-width: 0px;
     border-style: solid;
     border-color: $color-tan;
-    width: 100%;
+    width: 60%;
     height: auto;
-    margin: 10px 0px;
+    margin: 10px 20% 10px;
     line-height: 1.67rem;
     position: relative;
-    background-color: $color-pigeon-post;
+    background-color: $color-shark;
     float: left;
+    padding-bottom: 10px;
 }
 
-.errormessage {
-    margin: auto;
-    color: $color-black;
-    font-family: Open Sans, Sans-Serif;
-    font-size: 1rem;
-    font-weight: normal;
+.errormessagecontainer {
+    width: calc(100% - 30px);
+    height: auto;
     line-height: 1.67rem;
-    padding: 10px;
+    margin: 0px 10px;
+    padding: 5px 5px 0px;
+    background-color: $color-white-dark;
+    float: left;
     text-align: justify;
     a {
         text-decoration: underline;
@@ -30,13 +31,13 @@
 
 @media screen and (max-width: 600px) {
     /* comes into effect for screens between 321 and 480 pixels (inclusive) */
-    .errormessage {
+    .errormessagecontainer {
         font-size: 0.9rem;
     }
 }
 
 @media screen and (max-width: 400px) {
-    .errormessage {
+    .errormessagecontainer {
         text-align: left;
     }
 }
