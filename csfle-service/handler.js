@@ -18,6 +18,7 @@ module.exports.saveCustomerCSFLE = async (event) => {
         identityId: data.identityId,
         firstName: data.firstName ? data.firstName : '',
         lastName: data.lastName ? data.lastName : '',
+        account: data.account ? data.account : { sortCode: '', accountNumber: ''},
         dateOfBirth: data.dateOfBirth ? new Date(data.dateOfBirth) : new Date(),
         email: data.email ? data.email : '',
         address1: data.address1 ? data.address1 : '',
@@ -28,8 +29,7 @@ module.exports.saveCustomerCSFLE = async (event) => {
         phone: data.phone ? data.phone : '',
         about: data.about ? data.about : '',
         mailingFlag: data.mailingFlag ? (JSON.stringify(data.mailingFlag).toUpperCase() === 'TRUE' ? true : false) : false,
-        updatedAt: new Date(),
-        lastLogin: new Date()
+        updatedAt: new Date()
     }
 
     const existingCustomer = await getCustomer(client, userId);
@@ -103,13 +103,13 @@ const getCustomerSchema = (dataKey) => {
                 properties: {
                     sortCode: {
                         encrypt: {
-                            bsonType: "int",
+                            bsonType: "string",
                             algorithm: "AEAD_AES_256_CBC_HMAC_SHA_512-Random",
                         },
                     },
                     accountNumber: {
                         encrypt: {
-                            bsonType: "int",
+                            bsonType: "string",
                             algorithm: "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic",
                         },
                     },
