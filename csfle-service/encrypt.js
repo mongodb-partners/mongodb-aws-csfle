@@ -1,4 +1,3 @@
-let AWS = require('aws-sdk');
 const mdb = require("./mdb");
 const secret = require("./secret");
 const { Binary, ClientEncryption } = require('mongodb');
@@ -59,17 +58,6 @@ module.exports.getDataEncryptionKey = async (schema) => {
 }
 
 const createUniqueIndex = async (keyVaultClient) => {
-    //const keyVaultClient = mdb.get(false);
-    //await keyVaultClient.connect();
-    //const keyVaultDB = keyVaultClient.db(keyVaultDatabase);
-    // Drop the Key Vault Collection in case you created this collection
-    // in a previous run of this application.
-    //await keyVaultClient.db(keyVaultDatabase).dropDatabase();
-    // Drop the database storing your encrypted fields as all
-    // the DEKs encrypting those fields were deleted in the preceding line.
-    //await keyVaultClient.db("medicalRecords").dropDatabase();
-    //const keyVaultColl = keyVaultDB.collection(keyVaultCollection);
-
     await mdb.createIndex(keyVaultClient, keyVaultDatabase, keyVaultCollection,
         { keyAltNames: 1 },
         {
@@ -79,7 +67,6 @@ const createUniqueIndex = async (keyVaultClient) => {
                     }
                 }
         );
-    //await keyVaultClient.close();
     return;
 }
 

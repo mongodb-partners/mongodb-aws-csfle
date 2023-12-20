@@ -1,13 +1,15 @@
 {
   "name": "csfle-web-ui",
   "version": "0.0.1",
-  "description": "CSFLE Testing User Interface",
+  "description": "MongoDB Client Side Field Level Encryption Testing UI",
   "repository": {
     "type": "git",
     "url": "git@github.com:mongodb-partners/mongodb-aws-csfle.git"
   },
   "keywords": [
-    "web",
+    "csfle",
+    "mongodb",
+    "aws",
     "react"
   ],
   "author": "Devadyuti Das",
