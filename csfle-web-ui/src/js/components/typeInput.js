@@ -57,6 +57,7 @@ function TypeInput(props) {
                 placeholder={props.placeHolder}
                 min={props.min}
                 max={props.max}
+                minLength={props.minLength}
                 maxLength={props.maxLength}
                 disabled={props.disabled}
                 required={props.required}
@@ -83,6 +84,7 @@ TypeInput.propTypes = {
     required: PropTypes.bool,
     min: PropTypes.string,
     max: PropTypes.string,
+    minLength: PropTypes.number,
     maxLength: PropTypes.number,
     initialValue: PropTypes.string,
     value: PropTypes.string,

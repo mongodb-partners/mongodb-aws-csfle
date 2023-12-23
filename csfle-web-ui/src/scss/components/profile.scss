@@ -10,6 +10,18 @@
   float: left;
 }
 
+.profilefieldgroupcontainer {
+  width: calc(100% - 22px);
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid $color-abbey;
+  background-color: $color-white-dark;
+}
+
+.profilefieldgrouptitle {
+  font-weight: bold;
+}
+
 .profilefieldcontainer {
   margin: 0px;
   padding: 5px 10px;
