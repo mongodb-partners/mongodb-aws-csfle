@@ -34,7 +34,7 @@ function Profile(props) {
         sortCode: profile.account ? profile.account.sortCode : '',
         accountNumber: profile.account ? profile.account.accountNumber : '',
         dateOfBirth: profile.dateOfBirth ? dateFormatToString(new Date(profile.dateOfBirth)) : '',
-        email : profile.email ? profile.email : getSessionCookie("credential").email,
+        email : profile.email ? profile.email : getSessionCookie("credential").email ? getSessionCookie("credential").email : '',
         address1: profile.address1 ? profile.address1 : '',
         address2: profile.address2 ? profile.address2 : '',
         city: profile.city ? profile.city : '',
