@@ -12,8 +12,8 @@ function ViewProfile(props) {
         <>
             <div className="profilecontainer">
                 <div className="profilefieldcontainer">
-                    <Label name="First Name" label="First Name" required={false}/>
-                    <Label name="1" label={customer ? customer.firstName : ''} required={false}/>
+                    <Label name="First Name" label="First Name" required={false} />
+                    <Label name="1" label={customer ? customer.firstName : ''} required={false} />
                 </div>
                 <div className="profilefieldcontainer">
                     <Label name="Last Name" label="Last Name" required={false} />
