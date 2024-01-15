@@ -54,7 +54,7 @@ function CSFLEService(props) {
             <ul className="csfleservicesgroup">
                 {props.csfleServiceData.map((item, index) => (
                     <li key={index} className="csfleservice">
-                        <Title message={'Top CSFLE Services'} index={index} />
+                        <Title message={'CSFLE Services'} index={index} />
                         <ul className="servicegroup">
                             {item.serviceList.map((item1, index1) => (
                                 <Service key={index1} service={item1} countryCode={item.countryCode} handleClick={onCountryServEaseClick}/>
