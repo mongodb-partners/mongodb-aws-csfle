@@ -183,6 +183,7 @@ functions:
          authorizer: aws_iam
    environment:
      COLLECTION_NAME: "customer"
+
  getCustomerWithKey:
    handler: handler.getCustomerWithKey
    events:
@@ -193,6 +194,7 @@ functions:
          authorizer: aws_iam
    environment:
      COLLECTION_NAME: "customer"
+
  getCustomerNoKey:
    handler: handler.getCustomerNoKey
    events:
