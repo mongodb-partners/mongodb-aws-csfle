@@ -100,6 +100,23 @@ Clean up the downloaded file
 rm -f mongo_crypt_shared_v1-linux-x86_64-enterprise-amazon2-7.0.4.tgz
 ````
 
+## Store MongoDB & AWS KMS Parameters
+
+Open <a href="https://eu-west-1.console.aws.amazon.com/secretsmanager/home?region=eu-west-1">AWS Secrets Manager</a> and create following 2 Secrets in your chosen region (e.g., eu-west-1)
+
+Click on ‘Store a new secret’, choose Secret type as ‘Other type of secret’ and add a key value pair. Name the key as  ‘DEV_MONGODB_ATLAS_CLUSTER_URI’ and add the MongoDB connection string as value.
+
+![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/501de127-6156-4be5-9715-fc78362d1545)
+
+Repeat the same to store KMS Provider and IAM user credentials in a new secret. 
+Add the following key/value pairs 
+Key - KMS_PROVIDER_ACCESS_KEY, Value - IAM user access key.
+Key - KMS_PROVIDER_SECRET_ACCESS_KEY, Value - IAM user secret access key.
+Key - KMS_PROVIDER_MASTER_KEY_ARN, Value – AWS KMS master key ARN
+Name the secret as ‘DEV_KMS_PROVIDER_SECRETS’ and store.
+ 
+![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/f4c82857-0d02-4edb-a704-92043935790b)
+
 
 ## Build & Deploy CSFLE Service
 
