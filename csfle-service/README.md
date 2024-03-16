@@ -1,68 +1,49 @@
 ## Set up Development Environment
-As for this solution we want to enable Client Side Field Level Encryption completely automated and for that there is a dependency on Automated Encryption Shared Library of MongoDB. This library is distributed specific to Operating System requirement for client – in this scenario we are going to use AWS Lambda for our client so we’d need to set up our development environment in Linux-x86_x64 (which is the supported runtime for AWS Lambda)
-
-We have few choices like using AWS Cloud 9 or another Linux based IDE. In this blog we’ll learn how to set up your AWS Cloud 9 environment for AWS Lambda.
+Before we clone the repository to build and deploy Client Side Feild Level Encryption (CSFLE) microservice using Amazon API Gateway and AWS Lambda it's important to complete the development environment setup.
 
 ### Individual User Setup
 Sign in to your AWS account and create an administrative user by following this <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/setup-express.html">guide</a>.
 
-### Create an EC2 Environment
+### Create an EC2 Environment for AWS Cloud 9 (IDE)
 
-Open AWS Cloud 9 console by going to https://eu-west-1.console.aws.amazon.com/cloud9.
+Open AWS Cloud 9 console by going to <a href="https://eu-west-1.console.aws.amazon.com/cloud9">https://eu-west-1.console.aws.amazon.com/cloud9</a>.
 
 Choose AWS region from top right navigation bar. For this tutorial I am using eu-west-1.
 
+![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/f178fcdf-e9c5-439a-8efa-84c3f4ab8180)
 
 
-
-Follow the steps as described in https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment-main.html to create an EC2 environment. (Enter environment name and keep everything default like environment type, instance type, platform, timeout etc)
+Follow the steps as described in https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment-main.html to create an EC2 environment. (Enter environment name, select Platform as 'Amazon Linux 2' and keep everything default like environment type, instance type, platform, timeout etc)
  
+![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/27368e26-4687-43e2-bae4-074b0d797b2a)
+![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/7f528772-f210-44be-9f5e-43949f8da217)
 
 
+#### Warning
+> 
+> Creating an Amazon EC2 instance for your environment might result in possible charges to your AWS account for Amazon EC2. There's no additional cost to use Systems Manager to manage connections to your existing EC2 instance.
 
-
-
-Warning
-Creating an Amazon EC2 instance for your environment might result in possible charges to your AWS account for Amazon EC2. There's no additional cost to use Systems Manager to manage connections to your existing EC2 instance.
 
 ### Working with the IDE
 Once the environment creation is successful open Cloud9 IDE from the list of environments
 
-
-
-
-
-
+![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/97be78b3-46b4-48b5-b897-ca03574b4ea7)
+![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/bfd2dda9-401c-4727-9cd2-660850b4f533)
 
 
 Make sure you have NodeJS, NPM and Git SCM client are installed by running following commands and validating the output
 ````
-admin:~/environment $ node --version                                                                                                                                                                                                   
-v18.17.1
-admin:~/environment $ npm --version                                                                                                                                                                                                    
-10.2.5
-admin:~/environment $ git --version                                                                                                                                                                                                    
-git version 2.40.1
+node --version
+
+npm --version
+
+git --version
 ````
 
 ### Install Serverless Framework
-Run the following command to install serverless framework to deploy AWS serverless stack (https://www.serverless.com/framework/docs) and validate the installation
+Run the following command to install serverless framework to deploy AWS serverless stack (<a href="https://www.serverless.com/framework/docs">https://www.serverless.com/framework/docs</a>) and validate the installation
 ````
-admin:~/ environment $ npm install -g serverless
-npm WARN deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
-npm WARN deprecated querystring@0.2.1: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
-npm WARN deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
-npm WARN deprecated superagent@7.1.6: Please downgrade to v7.1.5 if you need IE/ActiveXObject support OR upgrade to v8.0.0 as we no longer support IE and published an incorrect patch version (see https://github.com/visionmedia/superagent/issues/1731)
-
-added 511 packages in 33s
-
-73 packages are looking for funding
-  run `npm fund` for details
-
-admin:~/environment $ serverless --version
-Framework Core: 3.38.0
-Plugin: 7.2.0
-SDK: 4.5.1
+npm install -g serverless
 ````
 
 
@@ -70,56 +51,164 @@ SDK: 4.5.1
 
 Create a directory named ‘workspace’ and change your location inside the new directory
 ````
-admin:~/ environment $ mkdir workspace
-admin:~/ environment $ cd workspace
-admin:~/ environment/workspace $
+mkdir workspace
 ````
 
-From the IDE click on the Source Control icon from left navigation and click on ‘Clone Repository.
+Go to AWS Cloud 9 IDE window and click on the Source Control icon from left navigation and click on ‘Clone Repository.
+
+![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/d5e355c3-a3a2-4a17-9d55-1eeb5a1d3b7e)
 
 
-Type the url https://github.com/mongodb-partners/mongodb-aws-csfle in repository text box and click Clone from URL
+Type the url <a href="https://github.com/mongodb-partners/mongodb-aws-csfle">https://github.com/mongodb-partners/mongodb-aws-csfle</a> in repository text box and click Clone from URL
+
+![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/a2a1dfa7-815b-415e-94be-be94bad02910)
 
 
 Choose the folder created in last step, ‘workspace’ to clone the repository
 
+![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/ff7cfdc6-0074-441a-b81a-436a82b33349)
+
 
 After github repository clone is complete you’ll see the following folder structure in Project explorer navigation on the left
 
-
-
-
+![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/f13d6efd-ba7b-47ea-8f61-e7752c16f7be)
 
 
 #### Download and Extract Automated Shared Encryption Library
 
-From bash shell create a folder for Encryption Library
+From bash shell create a folder 'mongo_crypt_shared' for Mongo Encryption Library
 ````
-admin:~/environment/workspace $ cd mongodb-aws-csfle/csfle-service/
-admin:~/environment/workspace/mongodb-aws-csfle/csfle-service (main) $ mkdir mongo_crypt_shared
-admin:~/environment/workspace/mongodb-aws-csfle/csfle-service (main) $ cd mongo_crypt_shared/
+cd mongodb-aws-csfle/csfle-service/
+
+mkdir mongo_crypt_shared
+
+cd mongo_crypt_shared/
 ````
  
 Download MongoDB Automated Shared Encryption Library for Amazon Linux 2 x64 version
 ````
-admin:~/environment/workspace/mongodb-aws-csfle/csfle-service/mongo_crypt_shared (main) $ curl  https://downloads.mongodb.com/linux/mongo_crypt_shared_v1-linux-x86_64-enterprise-amazon2-7.0.4.tgz?_ga=2.226686749.1017429497.1702377509-572716933.1675964579 -o mongo_crypt_shared_v1-linux-x86_64-enterprise-amazon2-7.0.4.tgz
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 28.8M  100 28.8M    0     0  21.2M      0  0:00:01  0:00:01 --:--:-- 21.2M
+curl  https://downloads.mongodb.com/linux/mongo_crypt_shared_v1-linux-x86_64-enterprise-amazon2-7.0.4.tgz?_ga=2.226686749.1017429497.1702377509-572716933.1675964579 -o mongo_crypt_shared_v1-linux-x86_64-enterprise-amazon2-7.0.4.tgz
 ````
  
 Extract the Encryption Library archive
 ````
-admin:~/environment/workspace/mongodb-aws-csfle/csfle-service/mongo_crypt_shared (main) $ tar xvf mongo_crypt_shared_v1-linux-x86_64-enterprise-amazon2-7.0.4.tgz
-LICENSE-Enterprise.txt
-MPL-2
-README
-THIRD-PARTY-NOTICES
-include/mongo_crypt/v1/mongo_crypt/mongo_crypt.h
-lib/mongo_crypt_v1.so
+tar xvf mongo_crypt_shared_v1-linux-x86_64-enterprise-amazon2-7.0.4.tgz
 ````
 
 Clean up the downloaded file
 ````
-admin:~/environment/workspace/mongodb-aws-csfle/csfle-service/mongo_crypt_shared (main) $ rm -f mongo_crypt_shared_v1-linux-x86_64-enterprise-amazon2-7.0.4.tgz
+rm -f mongo_crypt_shared_v1-linux-x86_64-enterprise-amazon2-7.0.4.tgz
+````
+
+
+## Build & Deploy CSFLE Service
+
+### Build node modules
+
+````
+cd workspace/
+
+cd mongodb-aws-csfle/
+
+cd csfle-service/
+
+npm install
+````
+
+### Configure Environment Variables
+
+Create a .env file inside csfle-service forlder and define following environment variables
+
+````
+RUNTIME=nodejs16.x
+PROFILE=default
+SERVICE_NAME=csfle
+DB_NAME=CSFLE
+COLLECTION_NAME=customer
+CRYPT_SHARED_LIB_PATH=/var/task/mongo_crypt_shared/lib/mongo_crypt_v1.so
+````
+
+The following environment variables are meant for a custom domain configuration for API Gateway. If you don’t have a Route 53 hosted domain, please ignore them. 
+
+> API_DOMAIN=YOUR_DOMAIN
+> 
+> BASE_PATH=csfle
+> 
+> CERTIFICATE_NAME=YOUR_CERTIFICATE_NAME
+> 
+> HOSTED_ZONE_ID=ROUTE53_HOSTED_ZONE
+> 
+> ENDPOINT_TYPE=regional
+> 
+> SECURITY_POLICY=tls_1_2
+> 
+> API_TYPE=rest
+
+Along with that you need to remove the following lines from serverless.yml file too.
+
+````
+- serverless-domain-manager
+
+stage: ${opt:stage, self:provider.stage}
+domains:
+ prod: ${env:API_DOMAIN}
+ dev: ${self:custom.stage}-${env:API_DOMAIN}
+customDomain:
+ domainName: ${self:custom.domains.${self:custom.stage}}
+ basePath: ${env:BASE_PATH}
+ stage: ${self:custom.stage}
+ certificateName: ${env:CERTIFICATE_NAME}
+ hostedZoneId: ${env:HOSTED_ZONE_ID}
+ createRoute53Record: true
+ endpointType: ${env:ENDPOINT_TYPE}
+ securityPolicy: ${env:SECURITY_POLICY}
+ apiType: ${env:API_TYPE}
+````
+
+### Configuring Security
+
+All the APIs we are going to deploy will be secured via AWS IAM authentication. Which means only users who has authenticated will receive a token to exchange with IAM Credentials and in turn will get access to the Amazon APIs below.
+
+Open serverless.yml and validate the authorizer as ‘aws_iam’
+
+````
+functions:
+ saveCustomerCSFLE:
+   handler: handler.saveCustomerCSFLE
+   events:
+     - http:
+         path: saveCustomerCSFLE
+         method: post
+         cors: true
+         authorizer: aws_iam
+   environment:
+     COLLECTION_NAME: "customer"
+ getCustomerWithKey:
+   handler: handler.getCustomerWithKey
+   events:
+     - http:
+         path: getCustomerWithKey
+         method: post
+         cors: true
+         authorizer: aws_iam
+   environment:
+     COLLECTION_NAME: "customer"
+ getCustomerNoKey:
+   handler: handler.getCustomerNoKey
+   events:
+     - http:
+         path: getCustomerNoKey
+         method: post
+         cors: true
+         authorizer: aws_iam
+   environment:
+     COLLECTION_NAME: "customer"
+````
+
+### Deploy API using Serverless
+
+Use serverless deploy using stage (dev) and AWS region for deployment (eu-west-1 in this case)
+
+````
+serverless deploy --stage dev --region eu-west-1
 ````
