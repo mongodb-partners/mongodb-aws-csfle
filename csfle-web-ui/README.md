@@ -127,7 +127,7 @@ Under Permission Policies expand the policy and click on Edit
  
 Add the following policy statement to allow the role to invoke 3 APIs we have created through serverless deployment in csfle-service. Click Next
 
-![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/7d60eaa9-1977-408a-9daf-5d5f35be406d)
+![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/972840ac-399f-4588-b55e-aceb44b77581)
 
  
 Click ‘Save Changes’
