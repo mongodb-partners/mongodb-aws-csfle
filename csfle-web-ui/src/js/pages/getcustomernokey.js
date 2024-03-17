@@ -1,7 +1,6 @@
 import React from 'react';
 import {useLocation} from "react-router";
-import {useIndex, usePost} from "../common/hook";
-import {getSessionCookie} from "../common/session";
+import {useGet, useIndex} from "../common/hook";
 import Title from "../components/title";
 import MetaTag from "../components/metatag";
 import Loader from "../components/loader";
@@ -13,12 +12,9 @@ const source = 'get-customer-no-key';
 
 function GetCustomerNoKey() {
     const index = useIndex(window.location.hostname, window.location.protocol);
-    const [data, loading] = usePost(
+    const [data, loading] = useGet(
         "getCustomerNoKey",
-        "/getCustomerNoKey",
-        {
-            identityId: getSessionCookie("credential").identityId
-        }
+        "/getCustomerNoKey"
     );
     const location = useLocation();
 

@@ -51,7 +51,7 @@ export const useFetch = (url, key) => {
     return [data, loading];
 }
 
-export const useGet = (api, path, key) => {
+export const useGet = (api, path) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -61,7 +61,6 @@ export const useGet = (api, path, key) => {
 
     async function getData() {
         let json;
-        let obj = getSessionStorage(key);
 
         const init = {
             response: true,
@@ -71,21 +70,14 @@ export const useGet = (api, path, key) => {
             },
         }
 
-        if(Object.keys(obj).length === 0 && obj.constructor === Object) {
-            await API.get(api, path, init)
-                .then(async response => {
-                    json = await response.data;
-                    if(key) {
-                        setSessionStorage(key, json);
-                    }
-                })
-                .catch(error => {
-                    console.log(error);
-                    json = error;
-                });
-        } else {
-            json = obj;
-        }
+        await API.get(api, path, init)
+            .then(async response => {
+                json = await response.data;
+            })
+            .catch(error => {
+                console.log(error);
+                json = error;
+            });
         console.log(json);
         setData(json);
         setLoading(false);
