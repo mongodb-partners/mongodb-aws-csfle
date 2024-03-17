@@ -1,11 +1,12 @@
-## Build & Running the CSFLE Web UI Application
+## Setup & Run CSFLE Web UI Application
 
-### Clone github CSFLE Test UI App
-If you have already cloned the github repository the Single Page CSFLE React App should be available at the following folder ~/workspace/mongodb-aws-csfle/csfle-web-ui
+In this section we'll learn how to set up & run CSFLE Web UI Application to test CSFLE Service
 
-### Configure Cognito Authentication
+## Setup Authentication
 
-As we have deployed the APIs of csfle-service for authorised users we are going to set up Amazon Cognito Authentication. 
+As we have deployed the APIs of csfle-service accessible only for authorised users we are going to set up Amazon Cognito Authentication. 
+
+### Configure Amazon Cognito
 
 From AWS Console Open Amazon Cognito and choose to ‘Create User Pool’. Make sure your AWS region is selected same as where you deployed your service (in this case ‘eu-west-1’). In next screen keep everything default and check ‘Email’ as sign-in option. Click Next
 
@@ -134,6 +135,11 @@ Click ‘Save Changes’
 ![image](https://github.com/mongodb-partners/mongodb-aws-csfle/assets/89611148/4f40581a-d305-4706-8a82-6dc2028b6292)
 
 
+## Run CSFLE Web UI Application
+
+### Clone github CSFLE Test UI App
+If you have already cloned the github repository the Single Page CSFLE React App should be available at the following folder ~/workspace/mongodb-aws-csfle/csfle-web-ui
+
 ### Populate the environment variables for React Web App
 Open the web project in your IDE  ~/workspace/mongodb-aws-csfle/csfle-web-ui and create 2 environment configuration files named ‘.env.local’ and ‘.env.development.local’ in the root folder.
 
@@ -162,7 +168,7 @@ REACT_APP_AWS_OATH_REDIRECT_SIGN_IN=http://localhost:3000/sign-in
 REACT_APP_AWS_OATH_REDIRECT_SIGN_OUT=http://localhost:3000/sign-in
 ````
 
-Start the React Web App
+### Start the React Web App
 From command line go to ~/workspace/mongodb-aws-csfle/csfle-web-ui and type ‘npm run start’ to start the web application
 
 ````
