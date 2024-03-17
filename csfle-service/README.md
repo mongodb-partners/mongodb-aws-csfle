@@ -1,3 +1,6 @@
+# Setup, Build & Deploy CSFLE Service
+In this section we'll learn how to set up development environment, fulfill prerequisites, build & deploy CSFLE Service
+
 ## Set up Development Environment
 Before we clone the repository to build and deploy Client Side Feild Level Encryption (CSFLE) microservice using Amazon API Gateway and AWS Lambda it's important to complete the development environment setup.
 
