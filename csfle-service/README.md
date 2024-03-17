@@ -209,7 +209,7 @@ functions:
    events:
      - http:
          path: getCustomerWithKey
-         method: post
+         method: get
          cors: true
          authorizer: aws_iam
    environment:
@@ -220,7 +220,7 @@ functions:
    events:
      - http:
          path: getCustomerNoKey
-         method: post
+         method: get
          cors: true
          authorizer: aws_iam
    environment:
