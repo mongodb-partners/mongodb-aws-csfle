@@ -1,4 +1,4 @@
-## Build & Running the Test Application
+## Build & Running the CSFLE Web UI Application
 
 ### Clone github CSFLE Test UI App
 If you have already cloned the github repository the Single Page CSFLE React App should be available at the following folder ~/workspace/mongodb-aws-csfle/csfle-web-ui
