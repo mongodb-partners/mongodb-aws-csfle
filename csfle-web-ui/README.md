@@ -1,4 +1,4 @@
-## Setup & Run CSFLE Web UI Application
+# Setup & Run CSFLE Web UI Application
 
 In this section we'll learn how to set up & run CSFLE Web UI Application to test CSFLE Service
 
