@@ -2,7 +2,7 @@
 MongoDB AWS Client Side Field Level Encryption
 
 ## The Totuorial
-Please read this <a href="#">blog</a> to understand you can implement Client Side Field Level Encryption using MongoDB Atlas and AWS services.
+Please read this <a href="#">blog</a> to understand how you can implement Client Side Field Level Encryption using MongoDB Atlas and AWS services.
 
 ## Project Overview
 Consists of 2 key components. Please find below installation and running instructions for individual components
