@@ -11,7 +11,7 @@ const keyVaultNamespace = `${keyVaultDatabase}.${keyVaultCollection}`;
 
 const getKeyManagementProviderDetails = async () => {
     const key = process.env['ENVIRONMENT'] ? process.env['ENVIRONMENT'].toUpperCase() + '_' + 'KMS_PROVIDER_SECRETS' : 'KMS_PROVIDER_SECRETS';
-    let response = JSON.parse(await secret(key));
+    let response = JSON.parse(await secret.getSecretValue(key));
     kmsProviders = {
         aws: {
             accessKeyId: response['KMS_PROVIDER_ACCESS_KEY'],
