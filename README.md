@@ -1,20 +1,14 @@
-# mongodb-aws-csfle
-MongoDB AWS Client Side Field Level Encryption
+# MongoDB AWS Client Side Field Level Encryption
+Protect Client Data using MongoDB Field Level Encryption with AWS KMS & AWS Lambda
 
-## The Requirements
-To be successful with this tutorial, the following should be met:
+## The Totuorial
+Please read this <a href="#">blog</a> to understand how you can implement Client Side Field Level Encryption using MongoDB Atlas and AWS services.
 
-* A MongoDB Atlas cluster
+## Project Overview
+Consists of 2 key components. Please find below installation and running instructions for individual components
 
-* NodeJS 16+
+* <a href="https://github.com/mongodb-partners/mongodb-aws-csfle/tree/main/csfle-service">Client Side Field Level Encryption Servcice</a>
 
-* MongoDB Driver in NodeJS
-
-* An AWS Account
-
-* Serverless Framework
-
-## High Level Architecture
-
+* <a href="https://github.com/mongodb-partners/mongodb-aws-csfle/blob/main/csfle-web-ui/README.md">Client Side Field Level Encryption Test User Interface</a>
 
 
