@@ -140,7 +140,7 @@ npm install
 Create a .env file inside csfle-service forlder and define following environment variables
 
 ````
-RUNTIME=nodejs16.x
+RUNTIME=nodejs18.x
 PROFILE=default
 SERVICE_NAME=csfle
 DB_NAME=CSFLE
