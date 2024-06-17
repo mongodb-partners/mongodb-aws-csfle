@@ -44,9 +44,9 @@ git --version
 ````
 
 ### Install Serverless Framework
-Run the following command to install serverless framework to deploy AWS serverless stack (<a href="https://www.serverless.com/framework/docs">https://www.serverless.com/framework/docs</a>) and validate the installation
+Run the following command to install serverless framework version 3 to deploy AWS serverless stack (<a href="https://www.serverless.com/framework/docs">https://www.serverless.com/framework/docs</a>) and validate the installation
 ````
-npm install -g serverless
+npm install -g serverless@3.39.0
 ````
 
 
